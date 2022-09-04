@@ -10,9 +10,11 @@
 
 
     <body class="antialiased bg-blue-500">
+        <a href="/admin">backoffice</a>
             <div id="app"></div>
 
+
+
             @vite('resources/js/app.js')
-        
     </body>
 </html>
