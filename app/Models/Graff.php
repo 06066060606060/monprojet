@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Graph extends Model
+class Graff extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class Graph extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'graphs';
+    protected $table = 'graffs';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\GraphRequest;
+use App\Http\Requests\GraffRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class GraphCrudController
+ * Class GraffCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class GraphCrudController extends CrudController
+class GraffCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class GraphCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Graph::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/graph');
-        CRUD::setEntityNameStrings('graph', 'graphs');
+        CRUD::setModel(\App\Models\Graff::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/graff');
+        CRUD::setEntityNameStrings('graff', 'graffs');
     }
 
     /**
@@ -39,11 +39,11 @@ class GraphCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
+        CRUD::column('nom');
         CRUD::column('description');
-        CRUD::column('address');
+        CRUD::column('addresse');
         CRUD::column('region');
-        CRUD::column('city');
+        CRUD::column('ville');
         CRUD::column('image');
         CRUD::column('latitude');
         CRUD::column('longitude');
@@ -57,15 +57,15 @@ class GraphCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(GraphRequest::class);
+        CRUD::setValidation(GraffRequest::class);
 
         
 
-        CRUD::field('name');
+        CRUD::field('nom');
         CRUD::field('description');
-        CRUD::field('address');
+        CRUD::field('addresse');
         CRUD::field('region');
-        CRUD::field('city');
+        CRUD::field('ville');
         CRUD::field('image');
         CRUD::field('latitude');
         CRUD::field('longitude');

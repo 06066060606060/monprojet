@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-       Schema::create('graphs', function (Blueprint $table) {
+       Schema::create('graffs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nom');
             $table->string('description');
-            $table->string('address');
-            $table->string('city');
+            $table->string('addresse');
+            $table->string('ville');
+            $table->string('region');
+            $table->string('image');
             $table->decimal('latitude', 8, 6);
             $table->decimal('longitude', 9, 6);
             $table->timestamps();
