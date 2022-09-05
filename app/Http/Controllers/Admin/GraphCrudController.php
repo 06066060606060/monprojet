@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\GraphRequest;
+use App\Models\Graph;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -48,6 +49,11 @@ class GraphCrudController extends CrudController
         CRUD::column('latitude');
         CRUD::column('longitude');
     }
+
+
+
+
+
 
     /**
      * Define what happens when the Create operation is loaded.
