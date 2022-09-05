@@ -10,12 +10,7 @@
     <body class="antialiased bg-blue-500">
         <a href="/admin">backoffice</a>
         <div class="flex flex-col mx-auto max-w-4xl ">
-   
-            <div class="map" id="app">
-                
-            </div>
-
-   
+            <div id="app"></div>
 
         </div>
       
