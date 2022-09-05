@@ -14,7 +14,7 @@
         @yield('main')
     </main>
 
-    <footer class="px-4 py-8 text-gray-400">
+    <footer>
         @include('parts.footer')
     </footer>
 	
