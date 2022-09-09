@@ -14,8 +14,10 @@ class Controller extends BaseController
 
 public function maps()
 {
-    $sites = Graff::all();
-    return view('maps', compact('sites'));
+    $graffs = Graff::all();
+    return view('maps', compact('graffs'));
+
+    
 }
 
 

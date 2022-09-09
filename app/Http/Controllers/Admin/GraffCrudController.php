@@ -29,6 +29,7 @@ class GraffCrudController extends CrudController
         CRUD::setModel(\App\Models\Graff::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/graff');
         CRUD::setEntityNameStrings('graff', 'graffs');
+       
     }
 
     /**
@@ -69,6 +70,14 @@ class GraffCrudController extends CrudController
         CRUD::field('image');
         CRUD::field('latitude');
         CRUD::field('longitude');
+        CRUD::addField([ // Photo
+            'name'      => 'image',
+            'label'     => 'Image',
+            'type'      => 'upload',
+            'upload'    => true,
+            'disk'      => '/storage/uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+            // optional:
+            'temporary' => 10,]);
     }
 
     /**

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('addresse');
             $table->string('ville');
             $table->string('region');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->decimal('latitude', 8, 6);
             $table->decimal('longitude', 9, 6);
             $table->timestamps();
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('graffs');
     }
 };
