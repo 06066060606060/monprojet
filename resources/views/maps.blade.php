@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="max-w-screen-xl mx-auto text-center py-4">
+    <div class="max-w-screen-xl py-4 mx-auto text-center">
 
         <div class="flex flex-row">
             <div class="flex flex-col w-full">
@@ -10,18 +10,20 @@
 
             </div>
 
-            <div class="flex flex-col ml-4">
+            <div class="flex flex-col ml-4 overflow-y-auto h-[700px]">
                 @foreach ($graffs as $graff)
                     <div id="graff{{ $graff->id }}" onclick="centerMapOnPost( {{ $graff->id }} )">
                         <h1>{{ $graff->nom }}</h1>
                         <img src="/storage/{{ $graff->image }}" alt="" class="w-64 h-16 py-2">
-
-                        <div class="hidden">
-
-                        </div>
+                     @php
+                          $imglink = "/storage/uploads/5e9feb4f6bb8bf032fecea42305f0617.jpg";
+                          $exif = exif_read_data($imglink , 0, true)
+                      
+                     @endphp  
+                    {{  $exif['GPSLatitude']; }}
                     </div>
                 @endforeach
-
+                
             </div>
         </div>
 
@@ -37,7 +39,7 @@
                 var graff = data[i];
                 var marker = L.marker([graff.latitude, graff.longitude]).addTo(mymap);
                 markers[graff.id] = marker;
-                marker.bindPopup(graff.nom).openPopup();
+                // marker.bindPopup(graff.nom).openPopup();
 
                 function centerMapOnPost(id) {
                     mymap.flyTo(markers[id].getLatLng(), 18);
