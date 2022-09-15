@@ -15,12 +15,7 @@
                     <div id="graff{{ $graff->id }}" onclick="centerMapOnPost( {{ $graff->id }} )">
                         <h1>{{ $graff->nom }}</h1>
                         <img src="/storage/{{ $graff->image }}" alt="" class="w-64 h-16 py-2">
-                     @php
-                          $imglink = "/storage/uploads/5e9feb4f6bb8bf032fecea42305f0617.jpg";
-                          $exif = exif_read_data($imglink , 0, true)
-                      
-                     @endphp  
-                    {{  $exif['GPSLatitude']; }}
+
                     </div>
                 @endforeach
                 
@@ -39,11 +34,11 @@
                 var graff = data[i];
                 var marker = L.marker([graff.latitude, graff.longitude]).addTo(mymap);
                 markers[graff.id] = marker;
-                // marker.bindPopup(graff.nom).openPopup();
+               
 
                 function centerMapOnPost(id) {
                     mymap.flyTo(markers[id].getLatLng(), 18);
-                   
+                    marker.bindPopup(graff.nom).openPopup();
                 }
             }
         </script>

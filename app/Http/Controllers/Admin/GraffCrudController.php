@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\GraffRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Termwind\Components\Dd;
 
 /**
  * Class GraffCrudController
@@ -29,7 +30,6 @@ class GraffCrudController extends CrudController
         CRUD::setModel(\App\Models\Graff::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/graff');
         CRUD::setEntityNameStrings('graff', 'graffs');
-       
     }
 
     /**
@@ -72,9 +72,40 @@ class GraffCrudController extends CrudController
             'label'     => 'Image',
             'type'      => 'upload',
             'upload'    => true,
-            // 'disk'      => '/public', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
-            // optional:
-            'temporary' => 10,]);
+            'temporary' => 10,
+        ]);
+        CRUD::field('image')->on('saving', function ($entry) {
+            $file = public_path('storage/' . $entry->image);
+            $exif = exif_read_data($file, 'IFD0', 0);
+            if ($exif && isset($exif['GPSLongitude'])) {
+                function getGps($exifCoord, $hemi)
+                {
+                    $degrees = count($exifCoord) > 0 ? gps2Num($exifCoord[0]) : 0;
+                    $minutes = count($exifCoord) > 1 ? gps2Num($exifCoord[1]) : 0;
+                    $seconds = count($exifCoord) > 2 ? gps2Num($exifCoord[2]) : 0;
+                    $flip = ($hemi == 'W' or $hemi == 'S') ? -1 : 1;
+                    return $flip * ($degrees + $minutes / 60 + $seconds / 3600);
+                }
+                function gps2Num($coordPart)
+                {
+                    $parts = explode('/', $coordPart);
+                    if (count($parts) <= 0) return 0;
+                    if (count($parts) == 1) return $parts[0];
+                    return floatval($parts[0]) / floatval($parts[1]);
+                }
+
+                $long = getGps($exif["GPSLongitude"], $exif['GPSLongitudeRef']);
+                $lat = getGps($exif["GPSLatitude"], $exif['GPSLatitudeRef']);
+    
+            } 
+          else {
+            $lat = 0;
+            $long = 0;
+          }
+
+            $entry->latitude = $lat;
+            $entry->longitude = $long;
+        });
     }
 
     /**

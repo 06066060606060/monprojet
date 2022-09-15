@@ -15,11 +15,11 @@ return new class extends Migration
     {
        Schema::create('graffs', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('description');
-            $table->string('addresse');
-            $table->string('ville');
-            $table->string('region');
+            $table->string('nom')->nullable();
+            $table->string('description')->nullable();
+            $table->string('addresse')->nullable();
+            $table->string('ville')->nullable();
+            $table->string('region')->nullable();
             $table->string('image')->nullable();
             $table->decimal('latitude', 8, 6)->nullable();
             $table->decimal('longitude', 9, 6)->nullable();
