@@ -18,10 +18,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/maps', [Controller::class, 'maps'])->name('maps');
+Route::get('/nord', [Controller::class, 'nord'])->name('nord');
+Route::get('/sud', [Controller::class, 'sud'])->name('sud');
+Route::get('/est', [Controller::class, 'est'])->name('est');
+Route::get('/ouest', [Controller::class, 'ouest'])->name('ouest');
 
+Route::get('/monprojet', function () {
+    return view('monprojet');
+});
 
+Route::get('/apropos', function () {
+    return view('apropos');
+});
 
-Route::get('/portfolio', function () {
-    return view('portfolio');
+Route::get('/map', function () {
+    return view('map');
 });

@@ -12,10 +12,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-public function maps()
+public function nord()
 {
     $graffs = Graff::all();
-    return view('maps', compact('graffs'));
+    return view('nord', compact('graffs'));
 
     
 }

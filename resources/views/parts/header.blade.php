@@ -1,19 +1,8 @@
-<header class="p-4 dark:bg-gray-800 dark:text-gray-100">
-	<div class="container flex justify-between h-16 mx-auto md:justify-center md:space-x-8">
-		<ul class="items-stretch hidden space-x-3 md:flex">
-			<li class="flex">
-				<a rel="noopener noreferrer" href="/" class="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Accueil</a>
-			</li>
-			<li class="flex">
-				<a rel="noopener noreferrer" href="/maps" class="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Carte</a>
-			</li>
-			<li class="flex">
-				<a rel="noopener noreferrer" href="/portfolio" class="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent ">Portfolio</a>
-			</li>
-			<li class="flex">
-				<a rel="noopener noreferrer" href="/admin" class="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Gestion</a>
-			</li>
-		</ul>
-		
-	</div>
-</header>
+<div class="sticky z-10 flex justify-center pt-8 text-base font-medium navigation top-6">
+    <div class="px-2 py-2 text-white bg-blue-600 rounded-full shadow-lg">
+      <a class="pl-4 pr-2 transition-colors duration-300 transform hover:text-gray-500" href="/">Accueil</a>
+      <a class="px-2 transition-colors duration-300 transform hover:text-gray-500" href="/monprojet">Mon Projet</a>
+      <a class="px-2 transition-colors duration-300 transform hover:text-gray-500" href="/map">La Carte</a>
+      <a class="pl-2 pr-4 transition-colors duration-300 transform hover:text-gray-500" href="/apropos">A propos</a>
+    </div>
+  </div>
