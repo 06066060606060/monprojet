@@ -34,3 +34,7 @@ Route::get('/apropos', function () {
 Route::get('/map', function () {
     return view('map');
 });
+
+Route::get('/moncv', function () {
+    return view('moncv');
+});

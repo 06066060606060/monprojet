@@ -60,3 +60,36 @@ body {
   bottom: 0;
   width: 100%;
 }
+
+
+.mapbck
+{
+  background-color: rgba(94, 94, 94, 0.597)
+}
+
+.cryspy{
+  image-rendering: crisp-edges;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(176, 176, 176); 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(37, 99, 235); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(37, 99, 235); 
+}
+
