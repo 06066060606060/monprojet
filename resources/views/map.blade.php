@@ -3,10 +3,10 @@
 @section('main')
     <!-- BLOCK CARTE -->
     <section>
-        <div class="container flex flex-col items-center px-5 pt-12 mx-auto">
+        <div class="max-w-[90%] flex flex-col items-center px-5 pt-12 mx-auto">
             <h1 class="text-3xl font-medium text-gray-900 title-font sm:text-4xl">Séléctionnez la zone à explorer</h1>
           
-                <div class="object-cover object-center w-[100%] p-4 -mt-10 rounded xl:w-3/6 lg:w-3/6 md:w-4/6">
+                <div class="object-cover object-center w-[100%] p-4 -mt-10 rounded xl:w-3/6 lg:w-5/6 md:w-5/6">
         
                 <?xml version="1.0" encoding="utf-8"?>
                 <!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -76,6 +76,9 @@
                             stroke: #0015ff;
                             stroke-width: 0.75;
                         }
+
+                 
+
                     </style>
                     <g class="st0">
                         <g id="layer3" inkscape:groupmode="layer" inkscape:label="cotes" class="st1">
@@ -1197,7 +1200,7 @@
                             c0.1,0.6,0.2,1.2,0.2,1.9c0,0.7,0.1,1.3,0.2,1.9c0.1,0.9,0.3,1.8,0.2,2.9l0,0.2l0.2,0.2c0.3,0.2,0.4,0.6,0.6,1
                             c0.3,0.5,0.6,1.2,1.2,1.5c0.1,0.4,0.3,0.7,0.4,1c0.3,0.7,0.5,1.3,0.7,2l0,0.2l0.2,0.1c0.4,0.2,0.5,1,0.6,1.7
                             C910.8,787.9,910.8,788.5,911,789z" />
-                            <path class="st3" onclick="nord();" onmouseover="showTooltip();" d="M686.1,204.7l0.1,0.3l-1,0.9v3.3l-0.6,0.1h-1.5l-1.5,1.8l-0.1,0.3l-1.5,0.8l-1.5,1.4l-1,1l-0.9,0.9l-1.1,1.3
+                            <path class="st3 tooltip1" onclick="nord();" onmouseover="showTooltip();" d="M686.1,204.7l0.1,0.3l-1,0.9v3.3l-0.6,0.1h-1.5l-1.5,1.8l-0.1,0.3l-1.5,0.8l-1.5,1.4l-1,1l-0.9,0.9l-1.1,1.3
                             l-0.3,1.5l-1.1,2.1l-0.7,1.6l0.6,0.9l-1.3,0.1l-1.3,0.3l-1.2,0.7l-0.5,0.6l-0.4,0.1l-1.2,0.6l-0.6,0.7h0l-1.3-0.2l-1.3,1.1
                             l-0.8,0.7l-1.7,1l-0.3,0.1h-0.3l-0.6-0.2l-0.9-0.8l-0.5-0.5l-0.3-0.8l-1.3-1.8l-1.9-0.3l-1.6,0.7l-2.8,2.4l-0.9,2.1l-0.8,1
                             l-0.6,0.6l-1.5-0.6l-2.1,1.7l-0.7,0.9l-3.3,2.2l-2.7,1.2l-1.2,1l-0.2,1.9l-0.2,0.9l-0.2,0.4l-0.5,0.6l-0.9,0.6l-0.9,0.7l-0.8-0.1
@@ -1395,6 +1398,7 @@
                             l0.3,1.1l0.7,1.6v1l-0.2,2.3l0.1,2l0.5,1.4l-0.1,1.2l-0.3,2.8l0,1.1l-2.7,4.4l-1.5,1.7l-1,0.4L413,388l-3.2,2.5l-1.1,0.5l-1,0.8
                             l-2,1.1l-1.1,2.1l0.4,1.8l1.2,1.5l1.7,1.1l3.4,2.8l1.6,0.9l0.4,0.3l1.1,1.6l0.8,1.7l0.5,0.8l1,1.9l0.6,0.6l0.9,1.4l0.6,1.3
                             l1.4,1.3l1.2,1l2.1,0.9l1,0.3l0.2,1.2l0.9,1.5l2,1.2l1.2,0.3h1.5l0.8,0.1l0.8,0.2l0.3,0.2L432.1,421.3z" />
+                         
                         </g>
                         <g>
                             <path class="st7" d="M949.9,566.6c-0.3-0.3-0.4-0.8-0.5-1.4c-0.1-0.5-0.3-1.1-0.5-1.6l-0.1-0.2l-0.2,0c-0.3-0.1-0.4-0.2-0.2-1.2
@@ -2330,8 +2334,8 @@
                     </g>
                 </svg>
             </div>
-
-            <a href="/nord" class="px-4 py-1 -mt-4 text-white bg-blue-600 rounded-full shadow-lg">A proximité de ma position</a>
+         
+            <a href="/nord" class="px-4 py-1 -mt-12 font-medium text-white bg-blue-600 rounded-full shadow-lg">A proximité de ma position</a>
         </div>
     </section>
 <script>

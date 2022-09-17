@@ -21,7 +21,9 @@
               </div>
             </div>
             <div class="pt-4 mt-4 text-center border-t border-gray-200 sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:border-t-0 sm:mt-0 sm:text-left">
-              <p class="mb-2 text-lg leading-relaxed text-black">Meggings portland fingerstache lyft, post-ironic fixie man bun banh mi umami everyday carry hexagon locavore direct trade art party.</p>
+              <p class="mb-2 text-lg leading-relaxed text-black">Meggings portland fingerstache lyft, post-ironic fixie man bun banh mi umami everyday carry hexagon locavore direct trade art party.
+                man bun banh mi umami everyday carry hexagon locavore direct trade art party.
+              </p>
               <a class="inline-flex items-center text-blue-800">Learn More
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>

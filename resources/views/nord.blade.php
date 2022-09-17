@@ -14,10 +14,9 @@
 
             <div class="flex flex-col pr-4 overflow-y-auto md:h-[70vh] h-[60vh]">
                 @foreach ($graffs as $graff)
-                    <div id="graff{{ $graff->id }}" onclick="centerMapOnPost( {{ $graff->id }} )" class="my-2 transition-colors duration-200 transform bg-blue-900 rounded-lg hover:bg-blue-600">
+                    <div id="graff{{ $graff->id }}" onclick="centerMapOnPost( {{ $graff->id }} )" class="my-2 transition-colors duration-100 transform bg-blue-900 rounded-lg hover:bg-blue-600">
                         <h1 class="text-sm text-white font">{{ $graff->nom }}</h1>
                         <img src="/storage/{{ $graff->image }}" alt="" class="object-cover w-48 h-20 rounded-b-lg shadow-lg cryspy">
-
                     </div>
                 @endforeach
                 
@@ -42,8 +41,9 @@
 
                 function centerMapOnPost(id) {
                     mymap.flyTo(markers[id].getLatLng(), 18);
-                    marker.bindPopup(graff.nom).openPopup();
+                    //marker.bindPopup(graff.nom).openPopup();
                 }
             }
+           
         </script>
     @endsection
