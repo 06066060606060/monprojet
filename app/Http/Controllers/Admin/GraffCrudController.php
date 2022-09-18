@@ -32,7 +32,7 @@ class GraffCrudController extends CrudController
         CRUD::setEntityNameStrings('graff', 'graffs');
     }
 
-function getFieldsData()
+    function getFieldsData()
     {
         $this->crud->addColumn([
             'name' => 'image',
@@ -41,9 +41,8 @@ function getFieldsData()
             'prefix' => 'storage/',
             'height' => '80px',
             'width' => 'auto',
-           
-    ]);
- 
+
+        ]);
     }
 
 
@@ -106,7 +105,21 @@ function getFieldsData()
         CRUD::field('image');
         CRUD::field('latitude');
         CRUD::field('longitude');
-        CRUD::field('region');
+        $this->crud->addField([   // select_from_array
+            'name'        => 'region',
+            'label'       => "region",
+            'type'        => 'select_from_array',
+            'options'     => [
+                'Nord' => 'Nord',
+                'Sud' => 'Sud',
+                'Est' => 'Est',
+                'Ouest' => 'Ouest',
+            ],
+
+            'allows_null' => false,
+            'default'     => 'one',
+            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+        ]);
         CRUD::addField([ // Photo
             'name'      => 'image',
             'label'     => 'Image',
@@ -118,7 +131,8 @@ function getFieldsData()
         CRUD::field('image')->on('saving', function ($entry) {
             $file = public_path('storage/' . $entry->image);
             $exif = exif_read_data($file, 'IFD0', 0);
-            if ($exif && isset($exif['GPSLongitude'])) {
+
+            if (isset($exif['GPSLongitude'])) {
                 function getGps($exifCoord, $hemi)
                 {
                     $degrees = count($exifCoord) > 0 ? gps2Num($exifCoord[0]) : 0;
@@ -137,27 +151,12 @@ function getFieldsData()
 
                 $long = getGps($exif["GPSLongitude"], $exif['GPSLongitudeRef']);
                 $lat = getGps($exif["GPSLatitude"], $exif['GPSLatitudeRef']);
-    
-            } 
-          else {
-            $lat = -20;
-            $long = 55;
-          }
-
+            } else {
+                $lat = -20;
+                $long = 55;
+            }
             $entry->latitude = $lat;
             $entry->longitude = $long;
-            if ($lat < -20.9 && $lat > -21.3 && $long < 55.3 && $long > 55.1) {
-                $entry->region = 'Ouest';
-            } else if ($lat < -21.1 && $lat > -21.3 && $long < 55.3 && $long > 55.1) {
-                $entry->region = 'Est';
-            } else if ($lat < -21.3 && $lat > -21.6 && $long < 55.5 && $long > 55.3) {
-                $entry->region = 'Sud';
-            } else if ($lat < -20.8 && $lat > -21.1 && $long < 55.5 && $long > 55.3) {
-                $entry->region = 'Nord';
-            } else {
-               $entry->region = 'A ajouter';
-                $entry->ville = 'A ajouter';
-            };
         });
     }
 

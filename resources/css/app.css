@@ -231,3 +231,11 @@ body {
  #footer {
 z-index: -100;
 }
+
+[x-cloak] {
+  display: none;
+}
+
+[v-cloak] {
+  display: none;
+}
