@@ -32,6 +32,21 @@ class GraffCrudController extends CrudController
         CRUD::setEntityNameStrings('graff', 'graffs');
     }
 
+function getFieldsData()
+    {
+        $this->crud->addColumn([
+            'name' => 'image',
+            'label' => 'images',
+            'type' => 'image',
+            'prefix' => 'storage/',
+            'height' => '80px',
+            'width' => 'auto',
+           
+    ]);
+ 
+    }
+
+
     /**
      * Define what happens when the List operation is loaded.
      * 
@@ -45,7 +60,7 @@ class GraffCrudController extends CrudController
         CRUD::column('addresse');
         CRUD::column('region');
         CRUD::column('ville');
-        CRUD::column('image');
+        $this->getFieldsData();
         CRUD::column('latitude');
         CRUD::column('longitude');
     }
@@ -71,6 +86,7 @@ class GraffCrudController extends CrudController
             'name'      => 'image',
             'label'     => 'Image',
             'type'      => 'upload',
+            'prefix' => 'storage/',
             'upload'    => true,
             'temporary' => 10,
         ]);
@@ -99,12 +115,24 @@ class GraffCrudController extends CrudController
     
             } 
           else {
-            $lat = 0;
-            $long = 0;
+            $lat = -20;
+            $long = 55;
           }
 
             $entry->latitude = $lat;
             $entry->longitude = $long;
+            if ($lat < -20.9 && $lat > -21.3 && $long < 55.3 && $long > 55.1) {
+                $entry->region = 'Ouest';
+            } else if ($lat < -21.1 && $lat > -21.3 && $long < 55.3 && $long > 55.1) {
+                $entry->region = 'Est';
+            } else if ($lat < -21.3 && $lat > -21.6 && $long < 55.5 && $long > 55.3) {
+                $entry->region = 'Sud';
+            } else if ($lat < -20.8 && $lat > -21.1 && $long < 55.5 && $long > 55.3) {
+                $entry->region = 'Nord';
+            } else {
+               $entry->region = 'A ajouter';
+                $entry->ville = 'A ajouter';
+            };
         });
     }
 

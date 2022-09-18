@@ -3,10 +3,10 @@
 @section('main')
     <!-- BLOCK CARTE -->
     <section>
-        <div class="max-w-[90%] flex flex-col items-center px-5 pt-12 mx-auto">
-            <h1 class="text-3xl font-medium text-gray-900 title-font sm:text-4xl">Séléctionnez la zone à explorer</h1>
+        <div class="flex flex-col items-center px-5 pt-12 mx-auto">
+            <h1 class="text-2xl pt-12 md:pt-0 font-medium text-gray-900 title-font md:text-4xl">Séléctionnez la zone à explorer</h1>
           
-                <div class="object-cover object-center w-[100%] p-4 -mt-10 rounded xl:w-3/6 lg:w-5/6 md:w-5/6">
+                <div class="object-cover object-center w-5/6 max-w-[900px] mt-[5vh] md:mt-0 lg:w-4/6 md:w-4/6 xl:w-3/6 2xl:w-3/6">
         
                 <?xml version="1.0" encoding="utf-8"?>
                 <!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -2335,7 +2335,7 @@
                 </svg>
             </div>
          
-            <a href="/nord" class="px-4 py-1 -mt-12 font-medium text-white bg-blue-600 rounded-full shadow-lg">A proximité de ma position</a>
+            <a href="/nord" class="px-4 py-2 md:-mt-10 font-medium text-white bg-blue-600 rounded-full shadow-lg">A proximité de ma position</a>
         </div>
     </section>
 <script>
