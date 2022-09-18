@@ -96,6 +96,7 @@ class GraffCrudController extends CrudController
                 'Saint-Gilles' => 'Saint-Gilles',
                 'Saint-Leu' => 'Saint-Leu',
                 'Le Tampon' => 'Le Tampon',
+                'test' => 'test',
             ],
 
             'allows_null' => false,
