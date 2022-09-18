@@ -6,7 +6,7 @@
         <div class="flex flex-col items-center px-5 pt-12 mx-auto">
             <h1 class="text-2xl pt-12 md:pt-0 font-medium text-gray-900 title-font md:text-4xl">Séléctionnez la zone à explorer</h1>
           
-                <div class="object-cover object-center w-5/6 max-w-[800px] mt-[5vh] md:-mt-10 lg:w-4/6 md:w-4/6 xl:w-3/6 2xl:w-3/6">
+                <div class="object-cover object-center w-5/6 max-w-[700px] mt-[5vh] md:-mt-10 lg:w-4/6 md:w-4/6 xl:w-3/6 2xl:w-3/6">
         
                 <?xml version="1.0" encoding="utf-8"?>
                 <!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
