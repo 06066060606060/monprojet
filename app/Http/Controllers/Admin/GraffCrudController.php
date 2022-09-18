@@ -133,7 +133,7 @@ class GraffCrudController extends CrudController
             $file = public_path('storage/' . $entry->image);
             $exif = exif_read_data($file, 'IFD0', 0);
 
-            if (isset($exif['GPSLongitude'])) {
+            if ($exif==true) {
                 function getGps($exifCoord, $hemi)
                 {
                     $degrees = count($exifCoord) > 0 ? gps2Num($exifCoord[0]) : 0;
