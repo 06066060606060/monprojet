@@ -57,6 +57,7 @@ function getFieldsData()
     {
         CRUD::column('nom');
         CRUD::column('description');
+        CRUD::column('artiste');
         CRUD::column('addresse');
         CRUD::column('region');
         CRUD::column('ville');
@@ -76,12 +77,36 @@ function getFieldsData()
         CRUD::setValidation(GraffRequest::class);
         CRUD::field('nom');
         CRUD::field('description');
+        CRUD::column('artiste');
         CRUD::field('addresse');
-        CRUD::field('region');
-        CRUD::field('ville');
+        $this->crud->addField([   // select_from_array
+            'name'        => 'ville',
+            'label'       => "ville",
+            'type'        => 'select_from_array',
+            'options'     => [
+                'Saint-Denis' => 'Saint-Denis',
+                'Saint-Pierre' => 'Saint-Pierre',
+                'Saint-Paul' => 'Saint-Paul',
+                'Le Port' => 'Le Port',
+                'La Saline' => 'La Saline',
+                'Saint-Joseph' => 'Saint-Joseph',
+                'Saint-Louis' => 'Saint-Louis',
+                'Saint-Benoît' => 'Saint-Benoît',
+                'Sainte-Suzanne' => 'Sainte-Suzanne',
+                'Saint-André' => 'Saint-André',
+                'Saint-Gilles' => 'Saint-Gilles',
+                'Saint-Leu' => 'Saint-Leu',
+                'Le Tampon' => 'Le Tampon',
+            ],
+
+            'allows_null' => false,
+            'default'     => 'one',
+            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+        ]);
         CRUD::field('image');
         CRUD::field('latitude');
         CRUD::field('longitude');
+        CRUD::field('region');
         CRUD::addField([ // Photo
             'name'      => 'image',
             'label'     => 'Image',
