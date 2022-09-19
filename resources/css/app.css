@@ -5,6 +5,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -101,16 +102,54 @@ body {
   margin-top: 70px;
   position:absolute;
   left: 65vw;
-  z-index: -100;
-  animation-duration: 4s; 
+  z-index: -100; 
+    animation: CloudA 25s infinite;
+    transform-origin: center;
+  }
+
+  @keyframes CloudA{
+    0%{transform: translateX(30px);}
+    50%{transform: translateX(-30px);}
+    100%{transform: translateX(30px);}
+  }
+
+.treeleft{
+  animation: animateU 10s infinite;
+  transform-origin: left;
 }
+@keyframes animateU{
+  0%{transform: rotate(2deg);}
+  50%{transform: rotate(-2deg)}
+  100%{transform: rotate(2deg);}
+}
+
+.treeright{
+  animation: animateR 4s infinite;
+  transform-origin: center;
+}
+
+@keyframes animateR{
+  0%{transform: translateY(0px);}
+  50%{transform: translateY(-7px);}
+  100%{transform: translateY(0px);}
+}
+
 
 #cloud2{
   margin-top: 20px;
   position:absolute;
   left: 10vw;
-  animation-duration: 2s; 
+  
+  animation: CloudB 25s infinite reverse;
+  transform-origin: center;
 }
+
+@keyframes CloudB{
+  0%{transform: translateX(-30px);}
+  50%{transform: translateX(30px);}
+  100%{transform: translateX(-30px);}
+}
+
 .obl {
  position: absolute;
  background-color: white;
@@ -197,6 +236,17 @@ body {
     height: 80px;
   }
 
+  .treeright{
+    padding-top: 50px;
+    animation: animateR 6s infinite;
+    transform-origin: center;
+  }
+  
+  @keyframes animateR{
+    0%{transform: translateY(0px);}
+    50%{transform: translateY(-2px);}
+    100%{transform: translateY(0px);}
+  }
   
 #cloud1{
   margin-top: 100px;

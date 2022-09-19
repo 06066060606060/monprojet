@@ -8,7 +8,7 @@
     </script>";@endphp
 
     <section class="px-4 pt-12">
-        <h1 class="mb-4 text-3xl font-medium text-center text-black sm:text-4xl">Nord</h1>
+        <h1 class="mb-4 text-3xl font-medium text-center text-black sm:text-4xl">A proximité de ma position</h1>
         <div class="max-w-screen-xl py-4 mx-auto text-center shadow-xl mapbck rounded-xl">
 
             <div class="flex flex-row">
