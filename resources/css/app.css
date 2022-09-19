@@ -102,12 +102,14 @@ body {
   position:absolute;
   left: 65vw;
   z-index: -100;
+  animation-duration: 4s; 
 }
 
 #cloud2{
   margin-top: 20px;
   position:absolute;
   left: 10vw;
+  animation-duration: 2s; 
 }
 .obl {
  position: absolute;
@@ -238,4 +240,8 @@ z-index: -100;
 
 [v-cloak] {
   display: none;
+}
+
+img{
+  user-select: none;
 }

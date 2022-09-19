@@ -36,6 +36,12 @@ public function ouest()
     return view('ouest', compact('graffs'));
 }
 
+public function proxi(){
+    $graffs = Graff::all();
+   
+    return view('proxi', compact('graffs'));
+}
+
 
 
 

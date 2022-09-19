@@ -26,16 +26,24 @@
 
     </section>
         <script>
+          
             var data = {!! json_encode($graffs) !!};
             console.log(data);
             var mymap = L.map('map').setView([-21.30, 55.50], 12);
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);
             var markers = {};
 
+            var greenIcon = L.icon({
+    iconUrl: '/img/icon.bomb.png',
+    iconSize:     [30, 45], // size of the icon
+    iconAnchor:   [22, 110], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
             // Loop through the data
             for (var i = 0; i < data.length; i++) {
                 var graff = data[i];
-                var marker = L.marker([graff.latitude, graff.longitude]).addTo(mymap);
+                var marker = L.marker([graff.latitude, graff.longitude], {icon: greenIcon}).addTo(mymap);
                 markers[graff.id] = marker;
                
 
@@ -43,6 +51,7 @@
                     mymap.flyTo(markers[id].getLatLng(), 18);
                     //marker.bindPopup(graff.nom).openPopup();
                 }
+              
             }
            
         </script>

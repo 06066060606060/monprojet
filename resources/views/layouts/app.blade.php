@@ -6,17 +6,17 @@
 </head>
 
 <body class="bg-blue-900">
-    <div id="cloud1" class="-z-20">
+    <div id="cloud1" class="-z-20 animate__animated animate__fadeInLeftBig">
         <div class="shadow-xl obl obl1 "></div>
          <div class="obl obl2"></div>
          <div class="obl obl3"></div>
      </div>
-     <div id="cloud2" class="-z-20">
+     <div id="cloud2" class="-z-20 animate__animated animate__fadeInLeftBig">
         <div class="shadow-xl obl obl1"></div>
          <div class="obl obl2"></div>
          <div class="obl obl3"></div>
      </div>
-     <div id="sun">
+     <div id="sun" class="animate__animated animate__fadeInDown">
         <div class="shadow-xl objsun"></div>
      </div>
     <img class="absolute w-1/4 max-h-full max-w-[479px] pt-20 md:pt-2 -z-10" src="./img/left.png" alt="cover">

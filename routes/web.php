@@ -19,8 +19,13 @@ Route::get('/', function () {
 });
 
 Route::get('/nord', [Controller::class, 'nord'])->name('nord');
+
+Route::get('/proxi', [Controller::class, 'proxi'])->name('proxi');
+
 Route::get('/sud', [Controller::class, 'sud'])->name('sud');
+
 Route::get('/est', [Controller::class, 'est'])->name('est');
+
 Route::get('/ouest', [Controller::class, 'ouest'])->name('ouest');
 
 Route::get('/monprojet', function () {

@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('main')
+
     <!-- BLOCK CARTE -->
     <section>
         <div class="flex flex-col items-center px-5 pt-12 mx-auto">
-            <h1 class="text-2xl pt-12 md:pt-0 font-medium text-gray-900 title-font md:text-4xl">Séléctionnez la zone à explorer</h1>
+            <h1 class="pt-12 text-2xl font-medium text-gray-900 md:pt-0 title-font md:text-4xl">Séléctionnez la zone à explorer</h1>
           
                 <div class="object-cover object-center w-5/6 max-w-[800px] mt-[5vh] md:-mt-10 lg:w-4/6 md:w-4/6 xl:w-3/6 2xl:w-3/6">
         
@@ -2335,7 +2336,7 @@
                 </svg>
             </div>
          
-            <a href="/nord" class="px-4 py-2 md:-mt-10 font-medium text-white bg-blue-600 rounded-full shadow-lg">A proximité de ma position</a>
+            <a href="/proxi" class="px-4 py-2 font-medium text-white bg-blue-600 rounded-full shadow-lg md:-mt-10">A proximité de ma position</a>
         </div>
     </section>
 <script>

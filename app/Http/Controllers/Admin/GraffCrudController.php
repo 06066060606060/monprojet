@@ -158,6 +158,8 @@ class GraffCrudController extends CrudController
             }
             $entry->latitude = $lat;
             $entry->longitude = $long;
+         
+
         });
     }
 
