@@ -103,7 +103,7 @@ body {
   position:absolute;
   left: 65vw;
   z-index: -100; 
-    animation: CloudA 25s infinite;
+    animation: CloudA 21s infinite;
     transform-origin: center;
   }
 
@@ -114,7 +114,8 @@ body {
   }
 
 .treeleft{
-  animation: animateU 10s infinite;
+  animation-delay: 2s;
+  animation: animateU 8s infinite;
   transform-origin: left;
 }
 @keyframes animateU{
@@ -282,7 +283,17 @@ body {
 
  #footer {
 z-index: -100;
+animation-delay: 1s;
+  animation: animateF 10s infinite;
+  transform-origin: center;
 }
+
+@keyframes animateF{
+  0%{transform: translateY(-20px);}
+  50%{transform: translateY(0px);}
+  100%{transform: translateY(-20px);}
+}
+
 
 [x-cloak] {
   display: none;
@@ -295,3 +306,17 @@ z-index: -100;
 img{
   user-select: none;
 }
+
+#dolphin{
+  margin-bottom: -300px;
+ z-index: -150;
+  transform-origin: center;
+  animation-iteration-count: infinite;
+
+}
+@keyframes dolphinus{
+  0%{transform: translateY(0px);}
+  50%{transform: translateY(-200px);}
+  100%{transform: translateY(0px);}
+}
+

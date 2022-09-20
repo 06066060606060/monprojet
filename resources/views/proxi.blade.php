@@ -43,9 +43,13 @@
         }
 
          function showPosition(position) {
-
+          lat = position.coords.latitude;
+          long = position.coords.longitude;
+            console.log(lat,long);
+        }
+        
         var data = {!! json_encode($graffs) !!};
-        var mymap = L.map('map').setView([position.coords.latitude, position.coords.longitude], 12);
+        var mymap = L.map('map').setView([-21.10, 55.20], 12);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);
 
         var markers = {};
@@ -55,7 +59,7 @@
             iconAnchor: [22, 80], // point of the icon which will correspond to marker's location
             popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
         });
-
+    
         // Loop through the data
         for (var i = 0; i < data.length; i++) {
             var graff = data[i];
@@ -69,6 +73,6 @@
                 //marker.bindPopup(graff.nom).openPopup();
             }
         }
-    }
+ 
     </script>
 @endsection
