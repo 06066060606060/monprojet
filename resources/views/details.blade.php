@@ -20,8 +20,7 @@
                     </div>
                 </div>
                     <div class="flex flex-col items-center justify-center pt-8 mx-auto rounded-lg max-w-7xl">
-                        <img class="object-cover object-center w-auto  max-h-[600px] rounded-xl" alt="hero"
-                            src="/storage/{{ $graff->image }}">
+                        <img class="object-cover object-center w-auto  max-h-[600px] rounded-xl" alt="hero" src="/storage/{{ $graff->image }}">
                     </div>
                 </div>
             </div>
