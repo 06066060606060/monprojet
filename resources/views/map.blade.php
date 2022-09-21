@@ -2338,24 +2338,24 @@
                     </svg>
             </div>
          
-            <a href="/proxi" class="px-4 py-2 font-medium text-white bg-blue-600 border border-white rounded-full shadow-lg md:-mt-10">A proximité de ma position</a>
+            <a href="/maps/around" class="px-4 py-2 font-medium text-white bg-blue-600 border border-white rounded-full shadow-lg md:-mt-10">A proximité de ma position</a>
         </div>
     </section>
 <script>
     function nord(){
-        window.open('/nord','_self');
+        window.open('/maps/nord','_self');
     }
 
     function sud(){
-        window.open('/sud','_self');
+        window.open('/maps/sud','_self');
     }
 
     function est(){
-        window.open('/est','_self');
+        window.open('/maps/est','_self');
     }
 
         function ouest(){
-            window.open('/ouest','_self');
+            window.open('/maps/ouest','_self');
     }
     
     function showTooltip() {

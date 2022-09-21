@@ -19,16 +19,15 @@
               </div>
           </div>
           <div class="w-full px-4 mt-8 prose text-white lg:px-0 lg:w-3/4">
-            @foreach ($about as $abo)
+ 
               <div class="mt-5 mb-5 border-b border-gray-200">
                   <div class="flex flex-wrap items-baseline -mt-2">
-                      <p class="mt-1 mb-4 ml-2 text-3xl font-bold text-white">{{ $abo->titre }}</p>
+                      <p class="mt-1 mb-4 ml-2 text-3xl font-bold text-white">Mon Projet de Recherche</p>
                   </div>
               </div>
-              <p>{{ $abo->description }}</p>
+              <p>{{ $about[1]->value }}</p>
                         
-              @endforeach 
-             
+      
           </div>
       </div>
   </div>

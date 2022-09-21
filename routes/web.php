@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\MapsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 /*
@@ -15,22 +16,16 @@ use App\Http\Controllers\MailController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/nord', [Controller::class, 'nord'])->name('nord');
+Route::get('/maps/{region}', [MapsController::class, 'getMaps'])->name('getMaps');
 
-Route::get('/proxi', [Controller::class, 'proxi'])->name('proxi');
-
-Route::get('/sud', [Controller::class, 'sud'])->name('sud');
-
-Route::get('/est', [Controller::class, 'est'])->name('est');
-
-Route::get('/ouest', [Controller::class, 'ouest'])->name('ouest');
-
-Route::get('/details/{id}', [Controller::class, 'details'])->name('details');
+Route::get('/details/{id}', [MapsController::class, 'details'])->name('details');
 
 Route::get('/about', [Controller::class, 'about'])->name('about');
+
+Route::post('/mail', [MailController::class, 'sendMessageGoogle']);
 
 Route::get('/contact', function () {
     return view('contact');
@@ -42,10 +37,4 @@ Route::get('/map', function () {
 
 Route::get('/moncv', function () {
     return view('moncv');
-});
-
-Route::post('/mail', [MailController::class, 'sendMessageGoogle']);
-
-Route::get('/register', function () {
-    return view('/');
 });

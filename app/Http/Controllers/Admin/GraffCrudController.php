@@ -119,8 +119,8 @@ class GraffCrudController extends CrudController
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
         CRUD::field('image');
-        CRUD::field('latitude');
-        CRUD::field('longitude');
+        CRUD::field('latitude')->type('number');
+        CRUD::field('longitude')->type('number');
 
         CRUD::addField([ // Photo
             'name'      => 'image',

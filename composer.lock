@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3eb239ee5527108c87da3aba1346d78a",
+    "content-hash": "6aa3ecc4a6829ac6c5be9f05b1626f9e",
     "packages": [
         {
             "name": "backpack/crud",
@@ -159,6 +159,74 @@
                 "source": "https://github.com/Laravel-Backpack/FileManager/tree/2.0.0"
             },
             "time": "2022-03-19T08:57:09+00:00"
+        },
+        {
+            "name": "backpack/settings",
+            "version": "3.0.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/Settings.git",
+                "reference": "c487c532f91236ec573b208ba022bb1a04e6d0a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/c487c532f91236ec573b208ba022bb1a04e6d0a2",
+                "reference": "c487c532f91236ec573b208ba022bb1a04e6d0a2",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.0|^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0||^7.0",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Backpack\\Settings\\SettingsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\Settings\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "tabacitu@backpackforlaravel.com",
+                    "homepage": "https://backpackforlaravel.com",
+                    "role": "Chief Architect & Lead Developer"
+                }
+            ],
+            "description": "Application settings interface for Laravel 5 using Backpack CRUD.",
+            "homepage": "https://github.com/laravel-backpack/settings",
+            "keywords": [
+                "backpack",
+                "backpack settings",
+                "dick",
+                "dick settings",
+                "laravel backpack",
+                "manage settings",
+                "settings admin",
+                "tabacitu",
+                "updivision"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Backpack/Settings/issues",
+                "source": "https://github.com/Laravel-Backpack/Settings/tree/3.0.16"
+            },
+            "time": "2022-04-18T13:27:13+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",

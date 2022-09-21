@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('abouts', function (Blueprint $table) {
+       Schema::create('regions', function (Blueprint $table) {
             $table->id();
-            $table->string('titre', 50)->nullable();
-            $table->text('description')->nullable();
-            $table->timestamps();
+            $table->string('region', 10)->nullable();
+            $table->decimal('latitude', 8, 6)->nullable();
+            $table->decimal('longitude', 9, 6)->nullable();
+            $table->decimal('zoom', 9, 6)->nullable();
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('regions');
     }
 };
