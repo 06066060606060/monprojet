@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+ 
 }
 
 body {
@@ -320,3 +321,13 @@ img{
   100%{transform: translateY(0px);}
 }
 
+.mappopup{
+  width: 200px;
+  background-color: #2b6cb0;
+}
+
+.mappopup h1{
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}

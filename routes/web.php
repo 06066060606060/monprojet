@@ -28,12 +28,14 @@ Route::get('/est', [Controller::class, 'est'])->name('est');
 
 Route::get('/ouest', [Controller::class, 'ouest'])->name('ouest');
 
+Route::get('/details/{id}', [Controller::class, 'details'])->name('details');
+
 Route::get('/monprojet', function () {
     return view('monprojet');
 });
 
-Route::get('/apropos', function () {
-    return view('apropos');
+Route::get('/contact', function () {
+    return view('contact');
 });
 
 Route::get('/map', function () {

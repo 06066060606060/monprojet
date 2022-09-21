@@ -1,5 +1,5 @@
 <div x-data="{ modelOpen: false }">
-    <button @click="modelOpen =!modelOpen"
+    <button @click="modelOpen =!modelOpen" id="secondary-button"
         class="p-3 pl-4 pr-4 mt-4 font-bold text-white transition duration-500 ease-in-out bg-blue-600 rounded-lg shadow-xl hover:bg-blue-900">CV
         Académique</button>
 

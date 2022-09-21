@@ -42,7 +42,11 @@ public function proxi(){
     return view('proxi', compact('graffs'));
 }
 
-
+public function details($id)
+{
+    $graff = Graff::find($id);
+    return view('details', compact('graff'));
+}
 
 
 }

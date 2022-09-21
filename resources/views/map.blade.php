@@ -5,7 +5,7 @@
     <!-- BLOCK CARTE -->
     <section>
         <div class="flex flex-col items-center px-5 pt-8 mx-auto">
-            <h1 class="pt-14 text-2xl font-medium text-gray-900 md:pt-0 title-font md:text-4xl">Séléctionnez la zone à explorer</h1>
+            <h1 class="text-2xl font-bold text-gray-900 pt-14 md:pt-0 title-font md:text-4xl">Séléctionnez la zone à explorer</h1>
           
                 <div class="object-cover object-center w-5/6 max-w-[750px] mt-[3vh] md:-mt-10 lg:w-4/6 md:w-4/6 xl:w-3/6 2xl:w-3/6">
         
@@ -2338,7 +2338,7 @@
                     </svg>
             </div>
          
-            <a href="/proxi" class="px-4 py-2 font-medium text-white border border-white bg-blue-600 rounded-full shadow-lg md:-mt-10">A proximité de ma position</a>
+            <a href="/proxi" class="px-4 py-2 font-medium text-white bg-blue-600 border border-white rounded-full shadow-lg md:-mt-10">A proximité de ma position</a>
         </div>
     </section>
 <script>

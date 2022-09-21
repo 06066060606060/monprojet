@@ -132,7 +132,7 @@ class GraffCrudController extends CrudController
         CRUD::field('image')->on('saving', function ($entry) {
             $file = public_path('storage/' . $entry->image);
             $exif = exif_read_data($file, 'IFD0', 0);
-
+           
             if (isset($exif['GPSLongitude'])) {
                 function getGps($exifCoord, $hemi)
                 {
@@ -158,10 +158,31 @@ class GraffCrudController extends CrudController
             }
             $entry->latitude = $lat;
             $entry->longitude = $long;
-         
+
+           /* read the source image */
+
+        $desired_width = 200;
+        $dest = public_path('/storage/miniatures/uploads/' . basename($entry->image));
+        $source_image = imagecreatefromjpeg($file);
+        $width = imagesx($source_image);
+        $height = imagesy($source_image);
+    
+        /* find the "desired height" of this thumbnail, relative to the desired width  */
+        $desired_height = floor($height * ($desired_width / $width));
+    
+        /* create a new, "virtual" image */
+        $virtual_image = imagecreatetruecolor($desired_width, $desired_height);
+    
+        /* copy source image at a resized size */
+        imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $desired_width, $desired_height, $width, $height);
+    
+        /* create the physical thumbnail image to its destination */
+        imagejpeg($virtual_image, $dest);
 
         });
     }
+
+    
 
     /**
      * Define what happens when the Update operation is loaded.
