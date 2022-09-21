@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('ville', 30)->nullable();
             $table->string('region', 20)->nullable();
             $table->string('image', 80)->nullable();
-            $table->decimal('latitude', 8, 8)->nullable();
-            $table->decimal('longitude', 9, 8)->nullable();
+            $table->decimal('latitude', 8, 6)->nullable();
+            $table->decimal('longitude', 9, 6)->nullable();
             $table->timestamps();
        });
     }
