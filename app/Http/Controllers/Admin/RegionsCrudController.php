@@ -29,7 +29,7 @@ class RegionsCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Regions::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/regions');
-        CRUD::setEntityNameStrings('Reglages de la carte', 'Reglages de la carte');
+        CRUD::setEntityNameStrings('Paramètres de la carte', 'Paramètres de la carte');
         $this->crud->denyAccess('delete');
         $this->crud->denyAccess('create');
     }  

@@ -4,6 +4,6 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="nav-icon la la-user"></i> Utilisateurs</a></li>
 {{-- <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i class="nav-icon la la-files-o"></i> Fichiers</span></a></li> --}}
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('graff') }}"><i class="nav-icon la la-brush"></i> Liste des Graffs</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('regions') }}"><i class="nav-icon la la-map"></i> Regions</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'><i class='nav-icon la la-cog'></i> <span>Settings</span></a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('regions') }}"><i class="nav-icon la la-map"></i> Carte</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'><i class='nav-icon la la-cog'></i> <span> Paramètres</span></a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Sauvegarde</a></li>
