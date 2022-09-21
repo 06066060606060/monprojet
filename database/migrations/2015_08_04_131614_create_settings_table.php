@@ -31,6 +31,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop(config('backpack.settings.table_name'));
+        Schema::dropIfExists('settings');
     }
 }
