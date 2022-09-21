@@ -15,30 +15,30 @@ class Controller extends BaseController
 
 public function nord()
 {
-    $graffs = Graff::all();
+    $graffs = Graff::orderBy('id', 'desc')->get();
     return view('nord', compact('graffs'));
 }
 
 public function sud()
 {
-    $graffs = Graff::all();
+    $graffs = Graff::orderBy('id', 'desc')->get();
     return view('sud', compact('graffs'));
 }
 
 public function est()
 {
-    $graffs = Graff::all();
+    $graffs = Graff::orderBy('id', 'desc')->get();
     return view('est', compact('graffs'));
 }
 
 public function ouest()
 {
-    $graffs = Graff::all();
+    $graffs = Graff::orderBy('id', 'desc')->get();
     return view('ouest', compact('graffs'));
 }
 
 public function proxi(){
-    $graffs = Graff::all();
+    $graffs = Graff::orderBy('id', 'desc')->get();
    
     return view('proxi', compact('graffs'));
 }

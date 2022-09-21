@@ -181,13 +181,6 @@ public function createThumbnail($entry)
         imagecopyresampled($temp_image, $source_image, 0, 0, 0, 0, $desired_width, $desired_height, $width, $height);
         imagejpeg($temp_image, $dest);
     }
-    
-
-
-
-
-    
-
     /**
      * Define what happens when the Update operation is loaded.
      * 
