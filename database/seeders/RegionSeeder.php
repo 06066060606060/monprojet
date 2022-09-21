@@ -13,7 +13,7 @@ class RegionSeeder extends Seeder
     {
         Regions::create(['region' => 'Nord', 'latitude' => '-20.88',  'longitude' => '55.45', 'zoom' => '14']);
         Regions::create(['region' => 'Sud', 'latitude' => '-21.31',  'longitude' => '55.50', 'zoom' => '14']);
-        Regions::create(['region' => 'Est', 'latitude' => '-21.05',  'longitude' => '55.27', 'zoom' => '14']);
-        Regions::create(['region' => 'Ouest', 'latitude' => '-21.01',  'longitude' => '55.68', 'zoom' => '14']);
+        Regions::create(['region' => 'Ouest', 'latitude' => '-21.05',  'longitude' => '55.27', 'zoom' => '14']);
+        Regions::create(['region' => 'Est', 'latitude' => '-21.01',  'longitude' => '55.68', 'zoom' => '14']);
     }
 }
