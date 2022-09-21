@@ -16,7 +16,7 @@ return new class extends Migration
        Schema::create('graffs', function (Blueprint $table) {
             $table->id();
             $table->string('nom', 50)->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('artiste' , 50)->nullable();
             $table->string('addresse' , 80)->nullable();
             $table->string('ville', 30)->nullable();

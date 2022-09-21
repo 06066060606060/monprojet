@@ -57,7 +57,7 @@ class GraffCrudController extends CrudController
         CRUD::column('nom');
         CRUD::column('description');
         CRUD::column('artiste');
-        CRUD::column('addresse');
+        CRUD::column('adresse');
         CRUD::column('region');
         CRUD::column('ville');
         $this->getFieldsData();
@@ -76,8 +76,8 @@ class GraffCrudController extends CrudController
         CRUD::setValidation(GraffRequest::class);
         CRUD::field('nom');
         CRUD::field('description');
-        CRUD::column('artiste');
-        CRUD::field('addresse');
+        CRUD::field('artiste');
+        CRUD::field('adresse');
         $this->crud->addField([   // select_from_array
             'name'        => 'ville',
             'label'       => "ville",
@@ -103,9 +103,6 @@ class GraffCrudController extends CrudController
             'default'     => 'one',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
-        CRUD::field('image');
-        CRUD::field('latitude');
-        CRUD::field('longitude');
         $this->crud->addField([   // select_from_array
             'name'        => 'region',
             'label'       => "region",
@@ -121,6 +118,10 @@ class GraffCrudController extends CrudController
             'default'     => 'one',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
+        CRUD::field('image');
+        CRUD::field('latitude');
+        CRUD::field('longitude');
+       
         CRUD::addField([ // Photo
             'name'      => 'image',
             'label'     => 'Image',

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +30,7 @@ Route::get('/ouest', [Controller::class, 'ouest'])->name('ouest');
 
 Route::get('/details/{id}', [Controller::class, 'details'])->name('details');
 
-Route::get('/monprojet', function () {
-    return view('monprojet');
-});
+Route::get('/about', [Controller::class, 'about'])->name('about');
 
 Route::get('/contact', function () {
     return view('contact');
@@ -44,4 +42,10 @@ Route::get('/map', function () {
 
 Route::get('/moncv', function () {
     return view('moncv');
+});
+
+Route::post('/mail', [MailController::class, 'sendMessageGoogle']);
+
+Route::get('/register', function () {
+    return view('/');
 });

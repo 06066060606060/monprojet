@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Graff;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -48,5 +49,10 @@ public function details($id)
     return view('details', compact('graff'));
 }
 
+public function about()
+{
+    $about = About::all();
+    return view('about', compact('about'));
+}
 
 }
