@@ -28,7 +28,6 @@
                                     Académique</h1>
                                     @php $academic = '{{url('/')}}/img/CV-ACADEMIQUE.docx' @endphp
                                     <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ $academic}}" width="640" height="480" allow="autoplay"></iframe>
-              @dd(  )
                             </div>
                         </div>
                     </div>
