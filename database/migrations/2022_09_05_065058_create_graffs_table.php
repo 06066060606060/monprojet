@@ -13,19 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-      // Schema::create('graffs', function (Blueprint $table) {
-      //       $table->id();
-      //       $table->string('nom', 50)->nullable();
-      //       $table->text('description')->nullable();
-      //       $table->string('artiste' , 50)->nullable();
-      //       $table->string('addresse' , 80)->nullable();
-      //       $table->string('ville', 30)->nullable();
-      //       $table->string('region', 20)->nullable();
-      //       $table->string('image', 80)->nullable();
-      //       $table->decimal('latitude', 8, 6)->nullable();
-      //       $table->decimal('longitude', 9, 6)->nullable();
-      //       $table->timestamps();
-      //  });
+      Schema::create('graffs', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom', 50)->nullable();
+            $table->text('description')->nullable();
+            $table->string('artiste' , 50)->nullable();
+            $table->string('addresse' , 80)->nullable();
+            $table->string('ville', 30)->nullable();
+            $table->string('region', 20)->nullable();
+            $table->string('image', 80)->nullable();
+            $table->decimal('latitude', 8, 6)->nullable();
+            $table->decimal('longitude', 9, 6)->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
