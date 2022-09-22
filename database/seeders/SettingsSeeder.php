@@ -32,7 +32,11 @@ class SettingsSeeder extends Seeder
             'key'         => 'about_text',
             'name'        => 'A propos',
             'description' => 'Texte page mon projet',
-            'value'       => 'dfghjpôiukyjhgfdsfertyuiompùimlukjyhtgrfrgthyjukilo',
+            'value'       => 'Etude de cas sur l’art urbain et le street-art à La Réunion:
+            Quels impacts sur le territoire et la société réunionnaise ?
+            
+            Etude géographique sur la présence du graffiti dans l’île et de la manière dont cet art s’insère dans le paysage réunionnais et collabore avec ses divers acteurs.
+            ',
             'field'       => '{"name":"value","label":"Value","type":"textarea"}',
             'active'      => 1,
         ]);

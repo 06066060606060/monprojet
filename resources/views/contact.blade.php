@@ -3,6 +3,11 @@
 @section('main')
      <!-- BLOCK apropos -->
      <section>
+       @if (session('Message_envoyé'))
+       <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000, PopupUser())" class="pt-1 pr-4">
+          <div id="popmenu" class="px-4 py-2 text-xs btnmenu text-emerald-500">&zwnj; Email envoyé</div>
+      </div>
+  @endif
       <div class="container flex flex-col px-5 pt-16 mx-auto md:pt-32">
 
             <form action="/mail"  method="POST" class="container w-full max-w-xl p-8 mx-auto space-y-6 bg-blue-900 shadow rounded-xl ng-untouched ng-pristine ng-valid">
@@ -28,5 +33,42 @@
   
       </div>
     </section>
-   
+    <script>
+      function PopupUser() {
+          console.log('okpop');
+          var updateElement = document.getElementById("popmenu");
+          updateElement.classList.toggle("active");
+  
+      }
+  </script>
+  <style>
+        #popmenu {
+        position: fixed;
+        top: -50px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        background-color: #46515F;
+        text-decoration: none;
+        transition: 0.25s;
+        border-radius: 8px;
+        user-select: none;
+        overflow: hidden;
+
+    }
+
+    #popmenu.active {
+        top: 60px;
+        transition: 0.3s;
+        transition: 0.25s;
+    }
+
+    @media (max-width: 640px) {
+        #popmenu.active {
+            top: 165px;
+            transition: 0.3s;
+            transition: 0.25s;
+        }
+    }
+</style>
 @endsection

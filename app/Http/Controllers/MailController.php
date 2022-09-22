@@ -7,6 +7,7 @@ use App\Mail\MyMail;
 use App\Models\Settings;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class MailController extends Controller
 {
@@ -22,6 +23,6 @@ class MailController extends Controller
         #3. Envoi du mail
         Mail::to($usermail->value)->queue(new MyMail($request->all()));
 
-        return back()->withText("Message envoyé");
+        return back()->with('Message_envoyé', 'ok');
     }
 }

@@ -25,10 +25,14 @@
                                 <p class="mt-1 mb-4 text-3xl font-bold text-white">Mon Projet de Recherche</p>
                             </div>
                         </div>
-                        <div
-                            class="flex flex-col items-center text-center">
+                        <div class="flex flex-col items-center text-center">
                             <p class="mb-8 leading-relaxed">{{ $about[1]->value }}</p>
                         </div>
+                        <div class="flex justify-center">
+                        <div class="bg-blue-600 rounded shadow-xl w-2/3 border hover:bg-green-800">
+                            <p class="py-1 leading-relaxed text-center">Mon CV Académique</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

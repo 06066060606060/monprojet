@@ -30,6 +30,6 @@ class MyMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Mail from GeoGraff')->view('googlemail');
+        return $this->subject('Mail from GeoGraff')->view('mail.googlemail');
     }
 }
