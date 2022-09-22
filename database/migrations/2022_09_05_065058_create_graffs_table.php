@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-      // Schema::create('graffs', function (Blueprint $table) {
+       Schema::create('graffs', function (Blueprint $table) {
       //       $table->id();
       //       $table->string('nom', 50)->nullable();
       //       $table->text('description')->nullable();
@@ -25,7 +25,7 @@ return new class extends Migration
       //       $table->decimal('latitude', 8, 6)->nullable();
       //       $table->decimal('longitude', 9, 6)->nullable();
       //       $table->timestamps();
-      //  });
+       });
     }
 
     /**
