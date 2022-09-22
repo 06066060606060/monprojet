@@ -38,3 +38,7 @@ Route::get('/map', function () {
 Route::get('/moncv', function () {
     return view('moncv');
 });
+
+Route::get('/admin/register', function () {
+  
+});
