@@ -26,8 +26,9 @@
                             <div class="mx-auto lg:max-w-5xl">
                                 <h1 class="mb-4 text-3xl font-medium text-center text-white sm:text-4xl">Mon CV
                                     Académique</h1>
-                                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http://127.0.0.1:8000/img/CV-ACADEMIQUE.docx" width="640" height="480" allow="autoplay"></iframe>
-              
+                                    @php $academic = '{{url('/')}}/img/CV-ACADEMIQUE.docx' @endphp
+                                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ $academic}}" width="640" height="480" allow="autoplay"></iframe>
+              @dd(  )
                             </div>
                         </div>
                     </div>
