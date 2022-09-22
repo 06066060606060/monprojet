@@ -10,7 +10,7 @@
                         <div class="p-4 transition duration-500 ease-in-out transform bg-blue-600 rounded-lg shadow-xl">
                             <div class="flex w-32">
                                 <img src="/img/avatar.png" class="w-16 h-16 rounded-full">
-                                <div class="pr-4 ml-4">
+                                <div class="pr-4 ml-4 pt-2">
                                     <p class="text-sm font-medium text-gray-900">Argelas</p>
                                     <p class="text-sm text-gray-900">Océane</p>
                                 </div>
@@ -28,10 +28,8 @@
                         <div class="flex flex-col items-center text-center">
                             <p class="mb-8 leading-relaxed">{{ $about[1]->value }}</p>
                         </div>
-                        <div class="flex justify-center">
-                        <div class="bg-blue-600 rounded shadow-xl w-2/3 border hover:bg-green-800">
-                            <p class="py-1 leading-relaxed text-center">Mon CV Académique</p>
-                        </div>
+                        <div class="flex justify-center pb-4 md:pb-0 ">
+                       @include('parts.cv')
                     </div>
                     </div>
                 </div>
