@@ -90,13 +90,13 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(37, 99, 235);
+  background: rgb(0, 0, 0);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(37, 99, 235);
+  background: rgb(0, 0, 0);
 }
 
 #cloud1{
