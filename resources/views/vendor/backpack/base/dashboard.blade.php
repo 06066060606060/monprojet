@@ -61,10 +61,10 @@
             </div>
         </div>
 
-  
+     
 </section>
 
-<script>
+<script type="module">
       let data = {!! json_encode($graffs) !!};
     //   console.log(data);
       let mymap = L.map('map').setView([-21.100, 55.500], 10);

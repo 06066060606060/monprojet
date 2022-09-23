@@ -18,7 +18,7 @@
        
     </section>
 
-    <script>
+    <script type="module">
         let region = {!! json_encode($region) !!};
         let latitudemap = {!! json_encode($region_map[0]->latitude) !!};
         let longitudemap = {!! json_encode($region_map[0]->longitude) !!};
