@@ -43,9 +43,7 @@
             let graffid = graff.id;
             let marker = L.marker([graff.latitude, graff.longitude], {
                 icon: greenIcon
-            }).addTo(mymap).bindPopup('<div class="mappopup"><a href="/details/' + graff.id +
-                '"> <img class="mt-4" src="/storage/miniatures/' + pics +
-                '" /><h1 class="py-2 hover:bg-green-800">Plus d\'info</h1></div>');
+            }).addTo(mymap).bindPopup('<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +'" /><a href="/details/' + graff.id +'"><h1 class="py-2 hover:bg-green-800">Plus d\'info</h1></a></div>');
             markers[graff.id] = marker;
         }
  
