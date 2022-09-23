@@ -1,19 +1,17 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.8fc35fa0.js",
+    "file": "assets/app.21a3c08b.js",
     "src": "resources/js/app.js",
-    "isEntry": true,
-    "css": [
-      "assets/app.2d4c25b0.css"
-    ]
-  },
-  "resources/css/app.css": {
-    "file": "assets/app.97ad95e7.css",
-    "src": "resources/css/app.css",
     "isEntry": true
   },
-  "resources/js/app.css": {
-    "file": "assets/app.2d4c25b0.css",
-    "src": "resources/js/app.css"
+  "resources/js/leaflet.js": {
+    "file": "assets/leaflet.f65eb32f.js",
+    "src": "resources/js/leaflet.js",
+    "isEntry": true
+  },
+  "resources/css/app.css": {
+    "file": "assets/app.6e365d5b.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
   }
 }
