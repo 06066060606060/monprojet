@@ -9,10 +9,9 @@
                     <div class="order-last w-full max-w-screen-sm m-auto mt-0 md:mt-12 lg:w-1/4 lg:order-first">
                         <div class="p-4 transition duration-500 ease-in-out transform bg-blue-600 rounded-lg shadow-xl">
                             <div class="flex w-32">
-                                <img src="/img/avatar.png" class="w-16 h-16 rounded-full">
-                                <div class="pr-4 ml-4 pt-2">
-                                    <p class="text-sm font-medium text-gray-900">Argelas</p>
-                                    <p class="text-sm text-gray-900">Océane</p>
+                                <img src="/img/avatar.jpg" class="w-16 h-16 rounded-full">
+                                <div class="pt-2 pr-4 ml-4">
+                                    <p class="text-sm font-medium text-gray-900">{{ $user->name }}</p>
                                 </div>
                             </div>
 
@@ -26,7 +25,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col items-center text-center">
-                            <p class="mb-8 leading-relaxed">{{ $about[1]->value }}</p>
+                            <p class="mb-8 leading-relaxed">{{ $about[2]->value }}</p>
                         </div>
                         <div class="flex justify-center pb-4 md:pb-0 ">
                        @include('parts.cv')

@@ -29,6 +29,15 @@ class SettingsSeeder extends Seeder
         ]);
 
         Settings::create( [
+            'key'         => 'url_cv',
+            'name'        => 'Popup du Curriculum Vitae',
+            'description' => 'Url du CV (.docx)',
+            'value'       => 'http://geograff.sc2lgvu9627.universe.wf/img/CV-ACADEMIQUE.docx',
+            'field'       => '{"name":"value","label":"Value","type":"text"}',
+            'active'      => 1,
+        ]);
+
+        Settings::create( [
             'key'         => 'about_text',
             'name'        => 'A propos',
             'description' => 'Texte page mon projet',

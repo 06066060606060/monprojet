@@ -31,7 +31,7 @@ class MapsController extends Controller
         }
         if ($region == 'around') {
             $graffs = Graff::orderBy('id', 'desc')->get();
-           
+            $region_map = Regions::all();
         }
         
     

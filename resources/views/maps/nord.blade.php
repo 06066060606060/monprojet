@@ -7,7 +7,7 @@
         </div>
         <div class="flex flex-col pr-4 overflow-y-auto md:h-[70vh] h-[60vh]">
             @foreach ($graffs as $graff)
-                <div id="graff{{ $graff->id }}" onclick="centerMapOnPost( {{ $graff->id }} )"
+                <div id="graff{{ $graff->id }}" onclick="centerMapOnPost({{ $graff->id }})"
                     class="my-2 transition-colors duration-100 transform bg-blue-600 rounded-lg hover:bg-green-800">
                     <h1 class="text-xs text-white font">{{ $graff->nom }}</h1>
                     <img src="/storage/miniatures/{{ $graff->image }}" alt=""

@@ -1,6 +1,6 @@
 <div x-data="{ modelOpen: false }">
     <button @click="modelOpen =!modelOpen" id="secondary-button"
-        class="p-3 pl-4 pr-4 mt-4 font-bold text-white transition duration-500 ease-in-out bg-blue-600  border rounded-lg shadow-xl hover:bg-green-800">Mon CV
+        class="p-3 pl-4 pr-4 mt-4 font-bold text-white transition duration-500 ease-in-out bg-blue-600 border rounded-lg shadow-xl hover:bg-green-800">Mon CV
         Académique</button>
 
     <div x-cloak x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
@@ -26,7 +26,7 @@
                             <div class="mx-auto lg:max-w-5xl">
                                 <h1 class="mb-4 text-3xl font-medium text-center text-white sm:text-4xl">Mon CV
                                     Académique</h1>
-                                    @php $academic = 'http://geograff.sc2lgvu9627.universe.wf/img/CV-ACADEMIQUE.docx' @endphp
+                                    @php $academic = $about[1]->value @endphp
                                     <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ $academic}}" width="640" height="480" allow="autoplay"></iframe>
                             </div>
                         </div>
