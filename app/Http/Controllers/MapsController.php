@@ -29,7 +29,7 @@ class MapsController extends Controller
             $graffs = Graff::where('region', 'ouest')->orderBy('id', 'desc')->get();
             $region_map = Regions::where('region', 'ouest')->get();
         }
-        if ($region == 'around') {
+        if ($region == 'full') {
             $graffs = Graff::orderBy('id', 'desc')->get();
             $region_map = Regions::all();
         }
@@ -38,10 +38,6 @@ class MapsController extends Controller
         return view('maps', compact('graffs', 'region', 'region_map'));
     }
     
-    static public function getFullMaps(){
-        $graffs = Graff::All();
-        return (compact('graffs'));
-    }
 
     static function Dashboard()
     {

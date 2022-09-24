@@ -26,9 +26,6 @@ Route::post('/mail', [MailController::class, 'sendMessageGoogle']);
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/map', function () {
-    return view('map');
-});
 
 Route::get('/admin/register', function () {
   

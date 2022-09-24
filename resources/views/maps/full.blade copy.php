@@ -1,4 +1,3 @@
-<h1 class="mb-4 text-3xl font-bold text-center text-black sm:text-4xl">Nord</h1>
 <div class="max-w-screen-xl py-4 mx-auto text-center bg-blue-900 shadow-xl rounded-xl">
     <div class="flex flex-row">
         <div class="flex flex-col w-full">
