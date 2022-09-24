@@ -3,8 +3,8 @@
 @section('main')
   <!-- BLOCK 1 -->
   <section class="m-4 text-gray-600 bckg">
-    <div class="max-w-[90%] flex flex-col items-center justify-center mx-auto max-h-[860px] pt-24 md:pt-0">
-      <img class="object-cover object-center w-[90%] max-w-[876px] mt-20 md:mt-8 lg:mt-4 lg:w-4/6 md:w-4/6 xl:w-4/6 2xl:w-3/6 select-none" alt="hero" src="./img/ile2.png">
+    <div class="max-w-[90%] flex flex-col items-center justify-center mx-auto pt-24 md:pt-10">
+      <img class="object-cover object-center w-[80vh] select-none" alt="hero" src="./img/ile2.png">
     </div>
   </section>
   
