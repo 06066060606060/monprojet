@@ -1,6 +1,7 @@
 <div x-data="{ modelOpen: false }">
     <button @click="modelOpen =!modelOpen" id="secondary-button"
-        class="p-3 pl-4 pr-4 mt-4 font-bold text-white transition duration-500 ease-in-out bg-blue-600 border rounded-lg shadow-xl hover:bg-green-800">Mon CV
+        class="p-3 pl-4 pr-4 mt-4 font-bold text-white transition duration-500 ease-in-out bg-blue-600 border rounded-lg shadow-xl hover:bg-green-800">Mon
+        CV
         Académique</button>
 
     <div x-cloak x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
@@ -23,16 +24,16 @@
                     {{-- @click="modelOpen = false" --}}
                     <div class="w-full py-8 space-y-3 text-gray-100 bg-blue-900 shadow-xl rounded-xl">
                         <div class="container flex flex-col px-5 mx-auto">
-                            <div class="mx-auto lg:max-w-5xl">
+                            <div class="mx-auto w-full">
                                 <h1 class="mb-4 text-3xl font-medium text-center text-white sm:text-4xl">Mon CV
                                     Académique</h1>
-                                    @php $academic = $about[1]->value @endphp
-                                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ $academic}}" width="640" height="480" allow="autoplay"></iframe>
+                                @php $academic = $about[1]->value @endphp
+                                <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ $academic }}" class="w-full h-[70vh]" allow="autoplay"></iframe>
                             </div>
                         </div>
                     </div>
-            </section>
+                </section>
+            </div>
         </div>
     </div>
-</div>
 </div>
