@@ -19,16 +19,16 @@
                 x-transition:leave="transition ease-in duration-200 transform"
                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                class="inline-block pt-16 overflow-hidden transition-all transform rounded-lg 2xl:max-w-2xl">
+                class="inline-block pt-16 overflow-hidden transition-all transform rounded-lg">
                 <section class="">
                     {{-- @click="modelOpen = false" --}}
                     <div class="w-full py-8 space-y-3 text-gray-100 bg-blue-900 shadow-xl rounded-xl">
                         <div class="container flex flex-col px-5 mx-auto">
-                            <div class="mx-auto w-full">
+                            <div class="w-full">
                                 <h1 class="mb-4 text-3xl font-medium text-center text-white sm:text-4xl">Mon CV
                                     Académique</h1>
                                 @php $academic = $about[1]->value @endphp
-                                <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ $academic }}" class="w-full h-[70vh]" allow="autoplay"></iframe>
+                                <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ $academic }}" class="w-full md:w-[680px] h-[70vh]" allow="autoplay"></iframe>
                             </div>
                         </div>
                     </div>

@@ -28,8 +28,8 @@
                             <p class="mb-8 leading-relaxed">{{ $about[2]->value }}</p>
                         </div>
                         <div class="flex justify-center pb-4 md:pb-0">
-                       @include('parts.cv')
-                    </div>
+                            @include('parts.cv')
+                        </div>
                     </div>
                 </div>
             </div>
