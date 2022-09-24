@@ -38,6 +38,10 @@ class MapsController extends Controller
         return view('maps', compact('graffs', 'region', 'region_map'));
     }
     
+    static public function getFullMaps(){
+        $graffs = Graff::All();
+        return (compact('graffs'));
+    }
 
     static function Dashboard()
     {
