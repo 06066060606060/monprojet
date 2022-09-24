@@ -4,11 +4,14 @@
 
     <!-- BLOCK CARTE -->
     <section>
-        <div class="flex flex-col items-center px-5 pt-8 mx-auto">
-            <h1 class="text-2xl font-bold text-gray-900 pt-14 md:pt-0 title-font md:text-4xl">Séléctionnez la zone à explorer</h1>
-          
-                <div class="object-cover object-center w-5/6 max-w-[750px] mt-[3vh] md:-mt-10 lg:w-4/6 md:w-4/6 xl:w-3/6 2xl:w-3/6">
-        
+        <div class="flex flex-col items-center px-5 pt-24 md:pt-18 mx-auto">
+            <div class="flex flex-col items-center justify-center bg-blue-900 rounded-xl w-full md:w-2/4 overflow-hidden">
+
+            <h1 class="text-xl font-bold text-white pt-4 title-font md:text-3xl text-center">Sélectionnez la zone à explorer</h1><br>
+            <div class="flex pl-4 md:pl-24 xl:pl-32">
+            <a href="/maps/around" class="absolute px-3 mx-16 py-1 text-blue-50 bg-blue-600 hover:bg-green-800 rounded-full shadow-lg text-xs z-50 text-center">A proximité</a>
+        </div>
+                <div class="object-cover object-center w-[100vw] md:w-[70vh] -mt-8  md:-mt-16">
                     <?xml version="1.0" encoding="utf-8"?>
                     <!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                     <svg version="1.1" id="svg2"
@@ -2341,7 +2344,7 @@
                     </svg>
             </div>
          
-            <a href="/maps/around" class="px-4 py-2 font-medium text-white bg-blue-600 border border-white rounded-full shadow-lg md:-mt-10">A proximité de ma position</a>
+        </div>
         </div>
     </section>
 <script>

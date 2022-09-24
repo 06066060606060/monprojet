@@ -1,6 +1,5 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    @vite('resources/js/leaflet.js')
     @if (config('backpack.base.meta_robots_content'))<meta name="robots" content="{{ config('backpack.base.meta_robots_content', 'noindex, nofollow') }}"> @endif
     
     <meta name="csrf-token" content="{{ csrf_token() }}" /> {{-- Encrypted CSRF token for Laravel, in order for Ajax requests to work --}}
@@ -9,17 +8,17 @@
     @yield('before_styles')
     
     @stack('before_styles')
-
+    
     @if (config('backpack.base.styles') && count(config('backpack.base.styles')))
     @foreach (config('backpack.base.styles') as $path)
-        <link rel="stylesheet" type="text/css" href="{{ asset($path).'?v='.config('backpack.base.cachebusting_string') }}">
-        
-        @endforeach
+    <link rel="stylesheet" type="text/css" href="{{ asset($path).'?v='.config('backpack.base.cachebusting_string') }}">
+    
+    @endforeach
     @endif
     
     @if (config('backpack.base.mix_styles') && count(config('backpack.base.mix_styles')))
     @foreach (config('backpack.base.mix_styles') as $path => $manifest)
-        <link rel="stylesheet" type="text/css" href="{{ mix($path, $manifest) }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix($path, $manifest) }}">
         @endforeach
     @endif
 
@@ -29,7 +28,8 @@
 
     @yield('after_styles')
     @stack('after_styles')
-
+    @vite('resources/js/app.js')
+    @vite('resources/js/leaflet.js')
     {{-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --}}
     {{-- WARNING: Respond.js doesn't work if you view the page via file:// --}}
     <!--[if lt IE 9]>

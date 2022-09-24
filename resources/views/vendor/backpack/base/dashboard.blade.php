@@ -15,62 +15,23 @@
         @endphp
     @endforeach
     <section class="text-gray-600 body-font">
-        <div class="">
-            <h1 class="mb-3 text-2xl font-medium text-gray-900 title-font sm:text-3xl">Statistiques</h1>
-            <div class="flex flex-wrap">
-                <div class="p-2 lg:w-1/4 min-w-[130px]">
-                    <div
-                        class="relative h-12 px-8 pt-8 pb-24 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
-                        <h1 class="mb-1 text-xl font-medium text-gray-900 title-font sm:text-2xl">Nord</h1>
-                        <div class="leading-relaxed">Total:<h2
-                                class="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">{{ count($textN) }}
-                            </h2>
+            <div class="flex">
+                    <div class="relative py-4 h-auto px-8 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
+                        <h1 class="mb-1 text-xl font-medium text-gray-900 title-font">Nombres de Graffs</h1>
+                        <div class="flex flex-col text-sm">
+                            <i>Nord: {{ count($textN) }}  Sud: {{ count($textS) }} </i>
+                            <i> Est: {{ count($textE) }}  Ouest: {{ count($textO) }} </i>
                         </div>
+                       
                     </div>
-                </div>
-                <div class="p-2 lg:w-1/4 min-w-[130px]">
-                    <div
-                        class="relative h-12 px-8 pt-8 pb-24 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
-                        <h1 class="mb-1 text-xl font-medium text-gray-900 title-font sm:text-2xl">Sud</h1>
-                        <div class="leading-relaxed">Total:<h2
-                                class="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">
-                                {{ count($textS) }}</h2>
-                        </div>
-
-
                     </div>
-                </div>
-                <div class="p-2 lg:w-1/4 min-w-[130px]">
-                    <div
-                        class="relative h-12 px-8 pt-8 pb-24 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
-                        <h1 class="mb-1 text-xl font-medium text-gray-900 title-font sm:text-2xl">Est</h1>
-                        <div class="leading-relaxed">Total:<h2
-                                class="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">
-                                {{ count($textE) }}</h2>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="p-2 lg:w-1/4 min-w-[130px]">
-                    <div
-                        class="relative h-12 px-8 pt-8 pb-24 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
-                        <h1 class="mb-1 text-xl font-medium text-gray-900 title-font sm:text-2xl">Ouest</h1>
-                        <div class="leading-relaxed">Total: <h2
-                                class="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">
-                                {{ count($textO) }}</h2>
-                        </div>
-
-
-                    </div>
-                </div>
-
+       
             </div>
-            <div class="flex w-full ">
+            <div class="flex mx-4">
                 <div id="map" class="mx-2 mt-4 rounded h-[550px] w-full">
                 </div>
             </div>
-        </div>
+      
 
 
     </section>

@@ -4,7 +4,7 @@
 	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;fill-opacity:0.88;}
-	.st1{fill:#2563EB;}
+	.st1{fill:#2563EB; z-index: 100;}
 </style>
 <path class="st0" d="M0,1080l0-132.5c99.7-23.7,265.8,115.9,414.8,59C550,954.9,703.6,867.7,823.3,902.8
 	c139,40.8,316.9,100,406.9,76.6c102.1-25.5,144.7-11.9,271-0.3c126.3,11.7,257.2-80.1,418.7-79.5V1080H0z"/>
