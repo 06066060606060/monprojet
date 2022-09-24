@@ -7,7 +7,7 @@
         <div class="flex flex-col items-center px-5 pt-24 md:pt-18 mx-auto">
             <div class="flex flex-col items-center justify-center bg-blue-900 rounded-xl w-full md:w-2/4 overflow-hidden">
 
-            <h1 class="text-xl font-bold text-white pt-4 title-font md:text-3xl text-center">Sélectionnez la zone à explorer</h1><br>
+            <h1 class="text-xl font-bold text-white pt-8 title-font md:text-3xl text-center">Sélectionnez la zone à explorer</h1><br>
             <div class="flex pl-4 md:pl-24 xl:pl-32">
             <a href="/maps/around" class="absolute px-3 mx-16 py-1 text-blue-50 bg-blue-600 hover:bg-green-800 rounded-full shadow-lg text-xs z-50 text-center">A proximité</a>
         </div>
