@@ -79,10 +79,10 @@
                                         <p class="max-w-md mt-2 text-base text-white md:max-w-xl">{{ $graff->description }}</p>
                                             <p class="max-w-md mt-2 text-xl text-white mx-auto">{{ $graff->artiste }}</p>
                                         </div>
-           
+                                     
                                     </div>
                                         <div class="flex flex-col items-center justify-center pt-8 mx-auto rounded-lg max-w-7xl">
-                                            <img id="imgraff" class="object-cover object-center w-auto  max-h-[600px] rounded-xl" alt="hero" >
+                                            <img id="graffimage" class="object-cover object-center w-auto  max-h-[600px] rounded-xl" alt="hero"  src="">
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +98,9 @@
 
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+    <script src="https://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
 <script>
+
     let region = {!! json_encode($region) !!};
     let latitudemap = {!! json_encode($region_map[0]->latitude) !!};
     let longitudemap = {!! json_encode($region_map[0]->longitude) !!};
@@ -121,10 +123,14 @@
         let graff = data[i];
         let pics = graff.image;
         let graffid = graff.id;
+        var hex =  pics.split('\\').pop().split('/').pop().split('.').slice(0, -1).join('.');
+
+
         let marker = L.marker([graff.latitude, graff.longitude], {
-            icon: greenIcon
+        icon: greenIcon
         }).addTo(mymap).bindPopup('<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
-            '" /><h1 onclick="myfunction(' + graff.id + ')" class="py-2 hover:bg-green-800">Plus d\'info</h1></div>'
+            '" /><h1 onclick="myfunction(' + graff.id +')" class="py-2 hover:bg-green-800">Plus d\'info</h1></div><img id="popup" class="mt-4 hidden" src="/storage/' + pics +
+            '" />'
             );
         markers[graff.id] = marker;
     }
@@ -150,19 +156,26 @@
         mymap.closePopup();
         mymap.flyTo(markers[id].getLatLng(), 18);
        markers[id].openPopup();
+       
          
     }
 
     function myfunction(id) {
-        // window.history.replaceState(null, null, id);
+
         markers[id].closePopup();
         console.log(id);
         document.getElementById("secondary-button").click();
+       var img = document.getElementById("popup").src;
+        document.getElementById("graffimage").src = img;
+
         mymap.closePopup();
        
     }
 
-   
+    function myfunction2(img) {
+        console.log(img);
+       
+    }
 
 
     function myLocation(lat, long) {
