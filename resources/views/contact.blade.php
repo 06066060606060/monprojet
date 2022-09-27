@@ -24,7 +24,7 @@
               </div>
               <div>
                 <label for="message" class="block mb-1 ml-1 text-white">Message</label>
-                <textarea name="message" id="message" type="text" placeholder="Message..." class="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400"></textarea>
+                <textarea name="message" id="message" type="text" required="" placeholder="Message..." class="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400"></textarea>
               </div>
               <div>
                 <button type="submit" class="w-full px-4 py-2 font-bold bg-blue-600 rounded shadow focus:outline-none hover:bg-green-800">Envoyer</button>

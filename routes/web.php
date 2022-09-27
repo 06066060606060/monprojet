@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\MapsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\API\GraffsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,9 @@ Route::get('/maps/{region}', [MapsController::class, 'getMaps'])->name('getMaps'
 Route::get('/details/{id}', [MapsController::class, 'details'])->name('details');
 Route::get('/about', [Controller::class, 'about'])->name('about');
 Route::post('/mail', [MailController::class, 'sendMessageGoogle']);
+
+Route::apiResource("/api/graffs", GraffsController::class);
+
 Route::get('/contact', function () {
     return view('contact');
 });
