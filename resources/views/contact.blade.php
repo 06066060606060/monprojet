@@ -16,7 +16,7 @@
               <div>
                 <label for="name" class="block mb-1 ml-1 text-white">Nom Prénom</label>
                 <input id="name" type="text" placeholder="Nom Prénom" required="" class="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400">
-                <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div>
+                {{-- <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div> --}}
               </div>
               <div>
                 <label for="email" class="block mb-1 ml-1 text-white">Email</label>

@@ -66,29 +66,29 @@
                         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         class="inline-block pt-16 overflow-hidden transition-all transform rounded-lg">
-                        <div class=""  @click="modelOpen = false">
-                 
-                            <div class="w-full py-8 space-y-3 text-gray-100 bg-blue-900 shadow-xl rounded-xl">
+                            <div class="w-full py-4 text-gray-100 bg-blue-900 shadow-xl rounded-xl">
+                           <div class="flex  flex-row-reverse pr-4">
+                                <img class="h-12 w-12 hover:opacity-100 transition-colors duration-100 transform opacity-25" src="/img/iconclose.png" @click="modelOpen = false">
+                            </div>
                                 <div class="container flex flex-col px-5 mx-auto">
                                     <div class="flex flex-col w-5xl">
                                  
-                                        <h1 class="max-w-5xl pt-4 pb-2 text-2xl font-bold leading-none tracking-tighter text-white lg:text-4xl lg:max-w-7xl">
-                                            {{ $graff->nom }}
-                                        </h1>
+                                        <h1 id="graffname" class="max-w-5xl font-bold leading-none text-white text-4xl"></h1>
                                         <div class="flex flex-col items-center">
-                                        <p class="max-w-md mt-2 text-base text-white md:max-w-xl">{{ $graff->description }}</p>
-                                            <p class="max-w-md mt-2 text-xl text-white mx-auto">{{ $graff->artiste }}</p>
+                                            <p id="descr" class="pt-2 max-w-md text-base text-white"></p>
+                                            <i id="artiste" class=" pt-2 text-md text-white mx-auto"></i>
                                         </div>
                                      
                                     </div>
-                                        <div class="flex flex-col items-center justify-center pt-8 mx-auto rounded-lg max-w-7xl">
+                                        <div class="flex flex-col items-center justify-center pt-2 mx-auto rounded-lg max-w-7xl">
                                             <img id="graffimage" class="object-cover object-center w-auto  max-h-[600px] rounded-xl" alt="hero"  src="">
+                                            <i id="position" class="mt-2 text-md text-white mx-auto"></i>
                                         </div>
                                     </div>
                                 </div>
                                 </div>
                             </div>
-                        </div>
+                    
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
 
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
-    <script src="https://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
+
 <script>
 
     let region = {!! json_encode($region) !!};
@@ -107,9 +107,17 @@
     let zoom = {!! json_encode($region_map[0]->zoom) !!};
     //console.log(latitudemap)
     let data = {!! json_encode($graffs) !!};
+
+
+
+
     let mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
+
     let markers = {};
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19}).addTo(mymap);
+
+
+
 
     let greenIcon = L.icon({
         iconUrl: '/img/icon.bomb.png',
@@ -123,13 +131,14 @@
         let graff = data[i];
         let pics = graff.image;
         let graffid = graff.id;
-        var hex =  pics.split('\\').pop().split('/').pop().split('.').slice(0, -1).join('.');
-
-
+        let graffname = graff.nom;
+        let graffdesc = graff.description;
+        let graffartiste = graff.artiste;
+        let graffposition = [graff.latitude+ "  " +graff.longitude];
         let marker = L.marker([graff.latitude, graff.longitude], {
         icon: greenIcon
         }).addTo(mymap).bindPopup('<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
-            '" /><h1 onclick="myfunction(' + graff.id +')" class="py-2 hover:bg-green-800">Plus d\'info</h1></div><img id="popup" class="mt-4 hidden" src="/storage/' + pics +
+            '" /><h1 onclick="myfunction(' + graff.id +')" class="py-2 hover:bg-green-800">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="'+ graffposition +'"><input type="text" class="hidden" id="graffnom" value="'+ graffname +'"><input type="text" class="hidden" id="graffartiste" value="'+ graffartiste +'"><input type="text" class="hidden" id="graffdesc" value="'+ graffdesc+'"><img id="popup" class="mt-4 hidden" src="/storage/' + pics +
             '" />'
             );
         markers[graff.id] = marker;
@@ -151,13 +160,10 @@
         
     }
 
-
     function centerMapOnPost(id) {
         mymap.closePopup();
         mymap.flyTo(markers[id].getLatLng(), 18);
        markers[id].openPopup();
-       
-         
     }
 
     function myfunction(id) {
@@ -165,18 +171,25 @@
         markers[id].closePopup();
         console.log(id);
         document.getElementById("secondary-button").click();
-       var img = document.getElementById("popup").src;
+        var img = document.getElementById("popup").src;
         document.getElementById("graffimage").src = img;
 
+        var graffnom = document.getElementById("graffnom").value;
+        document.getElementById("graffname").innerHTML = graffnom;
+
+        var graffdesc = document.getElementById("graffdesc").value;
+        document.getElementById("descr").innerHTML = graffdesc;
+
+        var graffartiste = document.getElementById("graffartiste").value;
+        document.getElementById("artiste").innerHTML = graffartiste;
+
+        var graffposition = document.getElementById("graffposition").value;
+        document.getElementById("position").innerHTML = graffposition;
+
+        
         mymap.closePopup();
        
     }
-
-    function myfunction2(img) {
-        console.log(img);
-       
-    }
-
 
     function myLocation(lat, long) {
         mymap.flyTo([lat, long], 14);
