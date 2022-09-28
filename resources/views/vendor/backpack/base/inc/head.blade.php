@@ -29,7 +29,7 @@
     @yield('after_styles')
     @stack('after_styles')
     @vite('resources/js/app.js')
-    @vite('resources/js/leaflet.js')
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
     {{-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --}}
     {{-- WARNING: Respond.js doesn't work if you view the page via file:// --}}
     <!--[if lt IE 9]>
