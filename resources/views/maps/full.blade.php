@@ -14,9 +14,7 @@
             <option value="" class="pl-2 mx-2 text-center">Ville </option>
             </option>
         </select>
-        <button name="proxi"
-            class="h-8 px-2 py-1.5 mx-1 my-1 text-sm text-center text-white bg-blue-600 hover:bg-green-800 border border-transparent rounded-md appearance-none hover:border-blue-100 "
-            onclick="getLocation()">
+        <button name="proxi" class="h-8 px-2 py-1.5 mx-1 my-1 text-sm text-center text-white bg-blue-600 hover:bg-green-800 border border-transparent rounded-md appearance-none hover:border-blue-100" onclick="getLocation();">
             A proximité
         </button>
     </div>
@@ -67,22 +65,22 @@
                         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         class="inline-block pt-16 overflow-hidden transition-all transform rounded-lg">
                             <div class="w-full py-4 text-gray-100 bg-blue-900 shadow-xl rounded-xl">
-                           <div class="flex  flex-row-reverse pr-4">
-                                <img class="h-12 w-12 hover:opacity-100 transition-colors duration-100 transform opacity-25" src="/img/iconclose.png" @click="modelOpen = false">
+                           <div class="flex flex-row-reverse pr-4">
+                                <img class="w-12 h-12 transition-colors duration-100 transform opacity-25 hover:opacity-100" src="/img/iconclose.png" @click="modelOpen = false">
                             </div>
                                 <div class="container flex flex-col px-5 mx-auto">
                                     <div class="flex flex-col w-5xl">
                                  
-                                        <h1 id="graffname" class="max-w-5xl font-bold leading-none text-white text-4xl"></h1>
+                                        <h1 id="graffname" class="max-w-5xl text-4xl font-bold leading-none text-white"></h1>
                                         <div class="flex flex-col items-center">
-                                            <p id="descr" class="pt-2 max-w-md text-base text-white"></p>
-                                            <i id="artiste" class=" pt-2 text-md text-white mx-auto"></i>
+                                            <p id="descr" class="max-w-md pt-2 text-base text-white"></p>
+                                            <i id="artiste" class="pt-2 mx-auto text-white text-md"></i>
                                         </div>
                                      
                                     </div>
                                         <div class="flex flex-col items-center justify-center pt-2 mx-auto rounded-lg max-w-7xl">
                                             <img id="graffimage" class="object-cover object-center w-auto  max-h-[600px] rounded-xl" alt="hero"  src="">
-                                            <i id="position" class="mt-2 text-md text-white mx-auto"></i>
+                                            <i id="position" class="mx-auto mt-2 text-white text-md"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -138,17 +136,19 @@
         let marker = L.marker([graff.latitude, graff.longitude], {
         icon: greenIcon
         }).addTo(mymap).bindPopup('<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
-            '" /><h1 onclick="myfunction(' + graff.id +')" class="py-2 hover:bg-green-800">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="'+ graffposition +'"><input type="text" class="hidden" id="graffnom" value="'+ graffname +'"><input type="text" class="hidden" id="graffartiste" value="'+ graffartiste +'"><input type="text" class="hidden" id="graffdesc" value="'+ graffdesc+'"><img id="popup" class="mt-4 hidden" src="/storage/' + pics +
+            '" /><h1 onclick="myfunction(' + graff.id +')" class="py-2 hover:bg-green-800">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="'+ graffposition +'"><input type="text" class="hidden" id="graffnom" value="'+ graffname +'"><input type="text" class="hidden" id="graffartiste" value="'+ graffartiste +'"><input type="text" class="hidden" id="graffdesc" value="'+ graffdesc+'"><img id="popup" class="hidden mt-4" src="/storage/' + pics +
             '" />'
             );
         markers[graff.id] = marker;
     }
 
     function getLocation() {
+        console.log('get-location');
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
             alert("Geolocation is not supported by this browser.");
+            console.log('Geolocation is not supported by this browser');
         }
     }
 
