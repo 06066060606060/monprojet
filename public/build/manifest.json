@@ -4,13 +4,8 @@
     "src": "resources/js/app.js",
     "isEntry": true
   },
-  "resources/js/leaflet.js": {
-    "file": "assets/leaflet.f65eb32f.js",
-    "src": "resources/js/leaflet.js",
-    "isEntry": true
-  },
   "resources/css/app.css": {
-    "file": "assets/app.9d93f2f1.css",
+    "file": "assets/app.a710aee2.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
