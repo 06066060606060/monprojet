@@ -19,7 +19,9 @@ class SettingsSeeder extends Seeder
      */
     public function run()
     {
-        Settings::create( [
+        Settings::firstOrCreate(
+            ['key' => 'contact_email'], 
+            [
             'key'         => 'contact_email',
             'name'        => 'Email de contact',
             'description' => 'Adresse email du form contact',
@@ -28,7 +30,9 @@ class SettingsSeeder extends Seeder
             'active'      => 1,
         ]);
 
-        Settings::create( [
+        Settings::firstOrCreate(
+            ['key' => 'url_cv'], 
+             [
             'key'         => 'url_cv',
             'name'        => 'Popup du Curriculum Vitae',
             'description' => 'Url du CV (.docx)',
@@ -37,7 +41,9 @@ class SettingsSeeder extends Seeder
             'active'      => 1,
         ]);
 
-        Settings::create( [
+            Settings::firstOrCreate(
+            ['key' => 'about_text'], 
+             [
             'key'         => 'about_text',
             'name'        => 'A propos',
             'description' => 'Texte page mon projet',

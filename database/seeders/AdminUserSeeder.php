@@ -11,8 +11,12 @@ class AdminUserSeeder extends Seeder
 
     public function run()
     {
-        User::create(['name' => 'Océane Argelas', 'email' => 'oceane.argelas@gmail.com',  'password' => bcrypt('123456')]);
-        User::create(['name' => 'Mika', 'email' => 'xmicky@hotmail.fr',  'password' => bcrypt('123456')]);
+        User::firstOrCreate(
+            ['email' => 'oceane.argelas@gmail.com'],
+            ['name' => 'Océane Argelas', 'email' => 'oceane.argelas@gmail.com',  'password' => bcrypt('123456')]);
+        User::firstOrCreate(
+            ['email' => 'xmicky@hotmail.fr'],
+            ['name' => 'Mika0000', 'email' => 'xmicky@hotmail.fr',  'password' => bcrypt('123456')]);
        
     }
 }

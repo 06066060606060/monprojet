@@ -1,20 +1,68 @@
 @import 'leaflet.css';
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: "Share Tech", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html {
   scroll-behavior: smooth;
-
- 
 }
+
+#selectfilter{
+  appearance: none;
+  color: #fff;
+  text-align: center; /* s'applique à toutes les box */
+  background-color: rgba(156, 156, 156, 0.37);
+}
+
+#selectfilter:hover{
+  color: #fff;
+  text-align: center; /* s'applique à toutes les box */
+  background-color: #2564eb;
+}
+
+#selectphoto{
+  appearance: none;
+  color: #fff;
+  text-align: center; /* s'applique à toutes les box */
+  background-color: rgba(156, 156, 156, 0.37);
+}
+
+#selectphoto:hover{
+  color: #fff;
+  text-align: center; /* s'applique à toutes les box */
+  background-color: #2564eb;
+
+}
+
+option:hover{
+  color: #fff;
+  text-align: center; /* s'applique à toutes les box */
+  background-color: #2564eb;
+
+}
+
+option{
+  color: #fff;
+  text-align: center; /* s'applique à toutes les box */
+  background-color: #2564eb;
+
+}
+
+
 
 body {
   height: 100vh;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: hsla(229, 100%, 50%, 1);
+
   background-image:
     radial-gradient(at 99% 40%, hsla(240, 78%, 53%, 1) 0px, transparent 50%),
     radial-gradient(at 4% 25%, hsla(220, 73%, 73%, 1) 0px, transparent 50%),
@@ -25,6 +73,16 @@ body {
     radial-gradient(at 4% 14%, hsla(279, 79%, 78%, 1) 0px, transparent 50%);
   background-repeat: no-repeat;
 
+}
+
+
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{
+  background-color: #1E3A8A;
+}
+
+.leaflet-container a.leaflet-popup-close-button{
+ color: #fff;
 }
 
 .carousel-open:checked+.carousel-item {

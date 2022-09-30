@@ -18,11 +18,14 @@ class MailController extends Controller
      */
     public function sendMessageGoogle (Request $request) {
         $usermail = Settings::All()->first();
-        #1. Validation de la requête
+       dd($request);
         $this->validate($request, [ 'message' => 'bail|required' ]);
+        if ($request->session()->exists('mail')) {
+            return back()->with('already_send', 'ok');
+        }
         #3. Envoi du mail
         Mail::to($usermail->value)->queue(new MyMail($request->all()));
-
-        return back()->with('Message_envoyé', 'ok');
+        $request->session()->put('mail', '1');
+        return back()->with('Mail_envoyé', 'ok');
     }
 }

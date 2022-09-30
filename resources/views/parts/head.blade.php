@@ -5,9 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @vite('resources/css/app.css')
-<script>
-    myToken = <?php echo json_encode(['csrfToken' => csrf_token()]); ?>
-</script>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Primary Meta Tags -->
 <title>GeoGraff — Océane Argelas</title>
 <meta name="title" content="GeoGraff — Océane Argelas">
