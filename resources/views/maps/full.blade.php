@@ -162,7 +162,7 @@
 
     function getLocation() {
         console.log('get-location');
-        if (navigator.geolocation) {
+      
             navigator.geolocation.getCurrentPosition(function() {}, function() {}, {});
             //The working next statement.
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -174,10 +174,7 @@
             }, {
                 enableHighAccuracy: true
             });
-        } else {
-            alert("Geolocation is not supported by this browser.");
-            console.log('Geolocation is not supported by this browser');
-        }
+        
     }
 
     function centerMapOnPost(id) {
