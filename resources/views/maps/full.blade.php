@@ -28,10 +28,15 @@
 
         </select>
         <button name="proxi"
-            class="h-8 px-4 py-1.5 mx-1 my-1 text-base text-center text-white rounded-md appearance-none"
+            class="h-8 px-4 mx-1 my-1 text-base text-center text-white rounded-md appearance-none"
             id="selectphoto" onclick="getLocation()">
             A proximité
         </button>
+        <button name="full"
+        class="h-8 px-4 mx-1 my-1 text-base text-center text-white rounded-md appearance-none"
+        id="selectphoto" onclick="fullscreen()">
+        <img src="/img/fullscreen.png" alt="fullscreen" width="14" height="14">
+    </button>
     </div>
 
     <div class="container flex flex-wrap mx-auto md:flex-nowrap">
@@ -115,6 +120,15 @@
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
+ function search()
+    {
+        position = document.getElementById("position").value;
+       
+        url ='http://www.google.com/search?q='+ position;
+        window.open(url,'_blank');
+    }
+
+
     let region = {!! json_encode($region) !!};
     let latitudemap = {!! json_encode($region_map[0]->latitude) !!};
     let longitudemap = {!! json_encode($region_map[0]->longitude) !!};
@@ -160,6 +174,8 @@
         markers[graff.id] = marker;
     }
 
+    
+
     function getLocation() {
         console.log('get-location');
       
@@ -176,7 +192,11 @@
             });
         
     }
-
+    themap = document.getElementById('map');
+    function fullscreen() {
+        themap.requestFullscreen();
+    }
+   
     function centerMapOnPost(id) {
         mymap.closePopup();
         mymap.flyTo(markers[id].getLatLng(), 18);
