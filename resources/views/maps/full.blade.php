@@ -4,18 +4,16 @@
         <select name="region"
             class="h-8 px-2 py-1 mx-1 my-1 text-base text-center text-white  rounded-md appearance-none" id="selectfilter"
             onchange="myRegion(this.value),mymap.closePopup();">
-            <option selected>Selectionner une region</option>
-            <option value="All">Toutes</option>
+            <option value="All" selected>Region</option>
             <option value="nord">Nord</option>
             <option value="sud">Sud</option>
             <option value="est">Est</option>
             <option value="ouest">Ouest</option>
         </select>
         <select name="ville"
-            class="h-8 px-2 py-1 mx-1 my-1 text-base text-center text-white  rounded-md appearance-none"
+            class="h-8 py-1 px-2 my-1 text-base text-center text-white rounded-md appearance-none"
             id="selectfilter" onchange="myVille(this.value),mymap.closePopup();">
-            <option selected>Selectionner une ville</option>
-            <option value="All">Toutes</option>
+            <option value="All" selected>ville</option>
             <option value="Saint-Denis">Saint-Denis</option>
             <option value="Saint-Pierre">Saint-Pierre</option>
             <option value="Saint-Paul">Saint-Paul</option>
@@ -164,7 +162,7 @@
         }).addTo(mymap).bindPopup(
             '<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
             '" /><h1 onclick="myfunction(' + graff.id +
-            ')" class="py-2 hover:bg-green-800 bg-blue-600">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
+            ')" class="py-2" id="selectfilter">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
             graffposition + '"><input type="text" class="hidden" id="graffnom" value="' + graffname +
             '"><input type="text" class="hidden" id="graffartiste" value="' + graffartiste +
             '"><input type="text" class="hidden" id="graffdesc" value="' + graffdesc +
