@@ -18,7 +18,7 @@ class MailController extends Controller
      */
     public function sendMessageGoogle (Request $request) {
         $usermail = Settings::All()->first();
-       dd($request);
+    //    dd($request);
         $this->validate($request, [ 'message' => 'bail|required' ]);
         if ($request->session()->exists('mail')) {
             return back()->with('already_send', 'ok');

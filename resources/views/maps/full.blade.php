@@ -29,7 +29,7 @@
         
         <button name="proxi" class="h-8 px-4 my-1 ml-1 text-xs text-white rounded-md appearance-none md:text-sm" id="selectphoto" onclick="getLocation()">A proximité</button>
 
-        <button name="full" class="h-8 px-2 mx-1 my-1 text-xs text-center text-white rounded-md appearance-none" id="selectphoto" onclick="fullscreen()">
+        <button name="full" class="h-8 px-4 mx-1 my-1 text-xs text-center text-white rounded-md appearance-none" id="selectphoto" onclick="fullscreen()">
             <img src="/img/fullscreen.png" alt="fullscreen" width="14" height="14">
         </button>
 
