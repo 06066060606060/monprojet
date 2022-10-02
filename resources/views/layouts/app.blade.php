@@ -5,7 +5,7 @@
     @include('parts.head')
 </head>
 
-<body class="bg-blue-900">
+<body id="backgradient">
     <div id="cloud1" class="-z-20 animate__animated animate__fadeInLeftBig">
         <div class="shadow-xl obl obl1 "></div>
          <div class="obl obl2"></div>

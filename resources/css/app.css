@@ -14,6 +14,16 @@ html {
   scroll-behavior: smooth;
 }
 
+
+
+#backgradient {
+  background: linear-gradient(35deg,hsla(240, 100%, 25%, 1),hsla(240, 100%, 25%, 1), hsla(240, 78%, 53%, 1), hsla(220, 73%, 73%, 1),hsla(207, 79%, 73%, 1), #ac5f0e, #e728ca7c,hsla(240, 100%, 25%, 1));
+  background-size: 400% 400%;
+  animation: gradient 60s ease infinite;
+  height: 100vh;
+}
+
+
 #selectfilter{
   color: #fff;
   text-align: center;
@@ -59,24 +69,16 @@ option{
 
 
 
-
-
-body {
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-
-  background-image:
-    radial-gradient(at 99% 40%, hsla(240, 78%, 53%, 1) 0px, transparent 50%),
-    radial-gradient(at 4% 25%, hsla(220, 73%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 50% 40%, hsla(193, 100%, 15%, 1) 0px, transparent 50%),
-    radial-gradient(at 21% 10%, hsla(207, 72%, 77%, 1) 0px, transparent 50%),
-    radial-gradient(at 28% 76%, hsla(207, 79%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 31% 74%, hsla(240, 100%, 25%, 1) 0px, transparent 50%),
-    radial-gradient(at 4% 14%, hsla(279, 79%, 78%, 1) 0px, transparent 50%);
-  background-repeat: no-repeat;
-
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 
