@@ -1,17 +1,18 @@
 <section class="relative w-full p-2 mx-auto bg-blue-900 body-font md:max-w-xl lg:max-w-3xl xl:max-w-5xl rounded-xl">
 
-    <div class="flex justify-center h-12">
-        <select name="region"
-            class="h-8 px-2 py-1 mx-1 my-1 text-base text-center text-white  rounded-md appearance-none" id="selectfilter"
-            onchange="myRegion(this.value),mymap.closePopup();">
+    <div class="flex h-12">
+        
+        
+        <select name="region" class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded-md appearance-none md:text-sm focus:outline-none focus:border-transparent" id="selectfilter" onchange="myRegion(this.value),mymap.closePopup();">
             <option value="All" selected>Region</option>
             <option value="nord">Nord</option>
             <option value="sud">Sud</option>
             <option value="est">Est</option>
             <option value="ouest">Ouest</option>
         </select>
+
         <select name="ville"
-            class="h-8 py-1 px-2 my-1 text-base text-center text-white rounded-md appearance-none"
+            class="h-8 px-4 py-1 my-1 text-xs text-center text-white rounded-md appearance-none md:text-sm focus:outline-none focus:border-transparent"
             id="selectfilter" onchange="myVille(this.value),mymap.closePopup();">
             <option value="All" selected>ville</option>
             <option value="Saint-Denis">Saint-Denis</option>
@@ -25,16 +26,13 @@
             <option value="Sainte-Rose">Sainte-Rose</option> --}}
 
         </select>
-        <button name="proxi"
-            class="h-8 px-4 mx-1 my-1 text-base text-center text-white rounded-md appearance-none"
-            id="selectphoto" onclick="getLocation()">
-            A proximité
+        
+        <button name="proxi" class="h-8 px-4 my-1 ml-1 text-xs text-white rounded-md appearance-none md:text-sm" id="selectphoto" onclick="getLocation()">A proximité</button>
+
+        <button name="full" class="h-8 px-2 mx-1 my-1 text-xs text-center text-white rounded-md appearance-none" id="selectphoto" onclick="fullscreen()">
+            <img src="/img/fullscreen.png" alt="fullscreen" width="14" height="14">
         </button>
-        <button name="full"
-        class="h-8 px-4 mx-1 my-1 text-base text-center text-white rounded-md appearance-none"
-        id="selectphoto" onclick="fullscreen()">
-        <img src="/img/fullscreen.png" alt="fullscreen" width="14" height="14">
-    </button>
+
     </div>
 
     <div class="container flex flex-wrap mx-auto md:flex-nowrap">
@@ -126,7 +124,6 @@
         window.open(url,'_blank');
     }
 
-
     let region = {!! json_encode($region) !!};
     let latitudemap = {!! json_encode($region_map[0]->latitude) !!};
     let longitudemap = {!! json_encode($region_map[0]->longitude) !!};
@@ -162,7 +159,7 @@
         }).addTo(mymap).bindPopup(
             '<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
             '" /><h1 onclick="myfunction(' + graff.id +
-            ')" class="py-2" id="selectfilter">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
+            ')" class="py-2" id="selectphoto">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
             graffposition + '"><input type="text" class="hidden" id="graffnom" value="' + graffname +
             '"><input type="text" class="hidden" id="graffartiste" value="' + graffartiste +
             '"><input type="text" class="hidden" id="graffdesc" value="' + graffdesc +

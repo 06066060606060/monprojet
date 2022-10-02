@@ -15,45 +15,49 @@ html {
 }
 
 #selectfilter{
-  appearance: none;
   color: #fff;
-  text-align: center; /* s'applique à toutes les box */
+  text-align: center;
   background-color: rgba(156, 156, 156, 0.37);
+
 }
 
-#selectfilter:hover{
+#selectfilter:focus {
   color: #fff;
-  text-align: center; /* s'applique à toutes les box */
+  text-align: center;
   background-color: #2564eb;
+
 }
+
+
+option:hover{
+  text-align: center;
+  background-color: #2564eb;
+
+
+}
+
+option{
+  text-align: center;
+  background-color: #2564eb;
+
+}
+
 
 #selectphoto{
   appearance: none;
   color: #fff;
-  text-align: center; /* s'applique à toutes les box */
+  text-align: center;
   background-color: rgba(156, 156, 156, 0.37);
 }
 
 #selectphoto:hover{
   color: #fff;
-  text-align: center; /* s'applique à toutes les box */
+  text-align: center;
   background-color: #2564eb;
 
 }
 
-option:hover{
-  color: #fff;
-  text-align: center; /* s'applique à toutes les box */
-  background-color: #2564eb;
 
-}
-
-option{
-  color: #fff;
-  text-align: center; /* s'applique à toutes les box */
-  background-color: #2564eb;
-
-}
 
 
 

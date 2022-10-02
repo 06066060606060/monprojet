@@ -18,19 +18,19 @@ class RegionSeeder extends Seeder
         );
         Regions::firstOrCreate(
             ['region' => 'Nord'],
-            ['region' => 'Nord', 'latitude' => '-20.88',  'longitude' => '55.45', 'zoom' => '12']
+            ['region' => 'Nord', 'latitude' => '-20.88',  'longitude' => '55.45', 'zoom' => '11']
         );
         Regions::firstOrCreate(
             ['region' => 'Sud'],
-            ['region' => 'Sud', 'latitude' => '-21.31',  'longitude' => '55.50', 'zoom' => '12']
+            ['region' => 'Sud', 'latitude' => '-21.31',  'longitude' => '55.50', 'zoom' => '11']
         );
         Regions::firstOrCreate(
             ['region' => 'Ouest'],
-            ['region' => 'Ouest', 'latitude' => '-21.05',  'longitude' => '55.27', 'zoom' => '12']
+            ['region' => 'Ouest', 'latitude' => '-21.05',  'longitude' => '55.27', 'zoom' => '11']
         );
         Regions::firstOrCreate(
             ['region' => 'Est'],
-            ['region' => 'Est', 'latitude' => '-21.01',  'longitude' => '55.68', 'zoom' => '12']
+            ['region' => 'Est', 'latitude' => '-21.01',  'longitude' => '55.68', 'zoom' => '11']
         );
     }
 }
