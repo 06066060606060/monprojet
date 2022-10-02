@@ -6,7 +6,6 @@
 		.st0 {
 			fill: #FFFFFF;
 			fill-opacity: 0.88;
-			z-index: -100;
 			animation-delay: 2s;
 			animation: animateW 12s infinite;
 			transform-origin: center;
@@ -16,7 +15,6 @@
 			fill: #2563EB;
 			stroke: #FFFFFF;
 			stroke-miterlimit: 10;
-			z-index: -100;
 			animation-delay: 2s;
 			animation: animateF 12s infinite;
 			transform-origin: center;

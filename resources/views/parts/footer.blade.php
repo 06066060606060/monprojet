@@ -1,11 +1,11 @@
 <!-- footer -->
 
-<section id="footer" class="">
+<section id="footer" class="-z-50">
     {{-- <img src="/img/arbre.png" alt="" class="fixed bottom-8 pl-10 mb-0 2xl:mb-16 xl:mb-10 lg:mb-6 object-scale-down lg:w-[245px] md:w-[200px] w-[180px] h-auto"> --}}
    <img src="/img/wave.svg" class="fixed bottom-5 xl:-bottom-50">
 </section>
 <div class="fixed bottom-0 block w-full bg-blue-600">
-   <div class="container z-50 flex flex-col items-center px-5 py-2 mx-auto mt-1">
+   <div class="container flex flex-col items-center px-5 py-2 mx-auto mt-1 -z-50">
      <span class="inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
        <a class="text-black">
          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
