@@ -346,8 +346,9 @@ option{
 
  }
 
-
-
+ #footer {
+z-index: -100;
+}
 
 [x-cloak] {
   display: none;
@@ -393,4 +394,6 @@ img{
   .mappopup h1{
     font-size: 10px;
   }
+ 
 }
+
