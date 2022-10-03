@@ -22,4 +22,8 @@ class Controller extends BaseController
         $about = Settings::All();
         return view('about', compact('about','user'));
     }
+
+
+    
+
 }

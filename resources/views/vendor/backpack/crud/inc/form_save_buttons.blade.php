@@ -6,7 +6,7 @@
             <div class="btn-group" role="group">
         @endif
 
-        <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-danger">
             <span class="la la-save" role="presentation" aria-hidden="true"></span> &nbsp;
             <span data-value="{{ $saveAction['active']['value'] }}">Enregistrer</span>
         </button>

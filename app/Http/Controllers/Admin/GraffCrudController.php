@@ -55,15 +55,16 @@ class GraffCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('nom');
-        CRUD::column('description');
         CRUD::column('artiste');
-        CRUD::column('adresse');
         CRUD::column('region');
         CRUD::column('ville');
         $this->getFieldsData();
 
     }
 
+
+
+    
     /**
      * Define what happens when the Create operation is loaded.
      * 
@@ -74,7 +75,7 @@ class GraffCrudController extends CrudController
     {
         $this->crud->setValidation([
             'nom' => 'required|min:2',
-            'image' => 'required|image|mimes:jpeg,jpg,|max:3072',
+            'image' => 'required|image|mimes:jpeg,jpg,|max:4096',
            
         ]);
         CRUD::setValidation(GraffRequest::class);
@@ -90,17 +91,13 @@ class GraffCrudController extends CrudController
                 'Saint-Denis' => 'Saint-Denis',
                 'Saint-Pierre' => 'Saint-Pierre',
                 'Saint-Paul' => 'Saint-Paul',
-                'Le Port' => 'Le Port',
-                'La Saline' => 'La Saline',
                 'Saint-Joseph' => 'Saint-Joseph',
                 'Saint-Louis' => 'Saint-Louis',
                 'Saint-Benoît' => 'Saint-Benoît',
-                'Sainte-Suzanne' => 'Sainte-Suzanne',
                 'Saint-André' => 'Saint-André',
                 'Saint-Gilles' => 'Saint-Gilles',
                 'Saint-Leu' => 'Saint-Leu',
                 'Le Tampon' => 'Le Tampon',
-                'test' => 'test',
             ],
 
             'allows_null' => false,
