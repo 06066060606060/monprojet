@@ -122,6 +122,11 @@ class GraffCrudController extends CrudController
             'default'     => 'one',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
+        // CRUD::addField([  // CustomHTML
+        //     'name'  => 'separator',
+        //     'type'  => 'custom_html',
+        //     'value' => '<i>Données GPS</i>'
+        // ]);
         CRUD::field('image');
 
         CRUD::addField([ // Photo
