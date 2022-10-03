@@ -61,8 +61,7 @@ class GraffCrudController extends CrudController
         CRUD::column('region');
         CRUD::column('ville');
         $this->getFieldsData();
-        CRUD::column('latitude');
-        CRUD::column('longitude');
+
     }
 
     /**
@@ -73,6 +72,11 @@ class GraffCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        $this->crud->setValidation([
+            'nom' => 'required|min:2',
+            'image' => 'required|image|mimes:jpeg,jpg,|max:3072',
+           
+        ]);
         CRUD::setValidation(GraffRequest::class);
         CRUD::field('nom');
         CRUD::field('description');
@@ -119,8 +123,6 @@ class GraffCrudController extends CrudController
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
         CRUD::field('image');
-        CRUD::field('latitude')->type('number');
-        CRUD::field('longitude')->type('number');
 
         CRUD::addField([ // Photo
             'name'      => 'image',
@@ -189,7 +191,11 @@ public function createThumbnail($entry)
      */
     protected function setupUpdateOperation()
     {
-        CRUD::setValidation(GraffRequest::class);
+     
+        $this->crud->setValidation([
+            'nom' => 'required|min:2',
+            'image' => 'required|image|mimes:jpeg,jpg|max:3072',
+        ]);
         CRUD::field('nom');
         CRUD::field('description');
         CRUD::field('artiste');

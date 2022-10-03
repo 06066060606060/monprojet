@@ -4,26 +4,26 @@
         
         
         <select name="region" class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded-md appearance-none md:text-sm focus:outline-none focus:border-transparent" id="selectfilter" onchange="myRegion(this.value),mymap.closePopup();">
-            <option value="All" selected>Region</option>
-            <option value="nord">Nord</option>
-            <option value="sud">Sud</option>
-            <option value="est">Est</option>
-            <option value="ouest">Ouest</option>
+            <option id="optionx" value="All" selected>Region</option>
+            <option id="optionx" value="nord">Nord</option>
+            <option id="optionx" value="sud">Sud</option>
+            <option id="optionx" value="est">Est</option>
+            <option id="optionx" value="ouest">Ouest</option>
         </select>
 
         <select name="ville"
             class="h-8 px-4 py-1 my-1 text-xs text-center text-white rounded-md appearance-none md:text-sm focus:outline-none focus:border-transparent"
             id="selectfilter" onchange="myVille(this.value),mymap.closePopup();">
-            <option value="All" selected>ville</option>
-            <option value="Saint-Denis">Saint-Denis</option>
-            <option value="Saint-Pierre">Saint-Pierre</option>
-            <option value="Saint-Paul">Saint-Paul</option>
-            <option value="Saint-Louis">Saint-Louis</option>
+            <option id="optionx" value="All" selected>ville</option>
+            <option id="optionx" value="Saint-Denis">Saint-Denis</option>
+            <option id="optionx" id="optionx" value="Saint-Pierre">Saint-Pierre</option>
+            <option id="optionx" value="Saint-Paul">Saint-Paul</option>
+            <option id="optionx" value="Saint-Louis">Saint-Louis</option>
             {{-- <option value="Saint-Benoit">Saint-Benoit</option>
-          <option value="Sainte-Marie">Sainte-Marie</option>
-            <option value="Sainte-Suzanne">Sainte-Suzanne</option>
-            <option value="Sainte-Anne">Sainte-Anne</option>
-            <option value="Sainte-Rose">Sainte-Rose</option> --}}
+          <option id="optionx" value="Sainte-Marie">Sainte-Marie</option>
+            <option id="optionx" value="Sainte-Suzanne">Sainte-Suzanne</option>
+            <option id="optionx" value="Sainte-Anne">Sainte-Anne</option>
+            <option  id="optionx" value="Sainte-Rose">Sainte-Rose</option> --}}
 
         </select>
         
@@ -236,7 +236,7 @@
             mymap.flyTo([latitudemap, longitudemap], zoom);
             mymap.closePopup();
         }if (value == "Saint-Pierre") {
-            let zoom = 14;
+            let zoom = 15;
             let latitudemap = -21.35;
             let longitudemap = 55.48;
             mymap.flyTo([latitudemap, longitudemap], zoom);

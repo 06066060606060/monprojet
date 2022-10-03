@@ -61,7 +61,12 @@ class RegionsCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-       
+        $this->crud->setValidation([
+            'region' => 'required|min:2',
+            'latitude' => 'required|min:2',
+            'longitude' => 'required|min:2',
+            'zoom' => 'required|min:2',
+        ]);
         CRUD::setValidation(RegionsRequest::class);
         CRUD::field('region');
         CRUD::field('latitude');

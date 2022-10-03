@@ -54,6 +54,11 @@ class UserCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(UserRequest::class);
+        $this->crud->setValidation([
+            'name' => 'required|min:2',
+            'email' => 'required|email|min:2',
+            'password' => 'required|min:6',
+        ]);
         CRUD::field('name');
         CRUD::field('email');
         CRUD::field('password');

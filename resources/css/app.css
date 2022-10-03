@@ -14,10 +14,19 @@ html {
   scroll-behavior: smooth;
 }
 
+#bomb:active {
+  transform-origin: center;
+  animation: Bomb 5s ease infinite;
+}
 
+@keyframes Bomb{
+  0%{transform: translateY(0px);}
+  50%{transform: translateY(5px);}
+  100%{transform: translateY(0px);}
+}
 
 #backgradient {
-  background: linear-gradient(35deg,hsla(240, 100%, 25%, 1),hsla(240, 100%, 25%, 1), hsla(240, 78%, 53%, 1), hsla(220, 73%, 73%, 1),hsla(207, 79%, 73%, 1), #ac5f0e, #e728ca7c,hsla(240, 100%, 25%, 1));
+  background: linear-gradient(25deg,hsla(240, 100%, 25%, 1),hsla(240, 100%, 25%, 1), hsla(240, 78%, 53%, 1), hsla(220, 73%, 73%, 1),hsla(207, 79%, 73%, 1), #ac5f0e, #b41d9d7c,hsla(240, 100%, 25%, 1));
   background-size: 400% 400%;
   animation: gradient 60s ease infinite;
   height: 100vh;
@@ -39,14 +48,14 @@ html {
 }
 
 
-option:hover{
+#optionx:hover{
   text-align: center;
   background-color: #2564eb;
 
 
 }
 
-option{
+#optionx{
   text-align: center;
   background-color: #2564eb;
 
