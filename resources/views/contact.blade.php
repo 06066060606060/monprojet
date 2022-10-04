@@ -17,25 +17,20 @@
 
         <div class="container flex flex-col px-5 pt-16 mx-auto md:pt-32">
 
-            <form <form name="contactUsForm" id="add-user-form" method="post" action="/email"
-                class="container w-full max-w-xl p-8 mx-auto space-y-6 bg-blue-900 shadow rounded-xl">
+            <form id="add-user-form" method="post" action="/email" class="container w-full max-w-xl p-8 mx-auto space-y-6 bg-blue-900 shadow rounded-xl">
                 @csrf
-                <h2 class="w-full text-3xl font-bold
-                leading-tight text-white">Contactez Moi</h2>
+                <h2 class="w-full text-3xl font-boldleading-tight text-white">Contactez Moi</h2>
                 <div>
                     <label for="name" class="block mb-1 ml-1 text-white">Nom Prénom</label>
-                    <input type="text" id="name" placeholder="Nom Prénom" required
-                        class="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400">
+                    <input name="name" type="text" id="name" placeholder="Nom Prénom"  class="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400" required>
                 </div>
                 <div>
                     <label for="email" class="block mb-1 ml-1 text-white">Email</label>
-                    <input type="email" id="email" placeholder="Adresse email" required
-                        class="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400">
+                    <input name="email" type="email" id="email" placeholder="Adresse email" class="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400" required>
                 </div>
                 <div>
                     <label for="message" class="block mb-1 ml-1 text-white">Message</label>
-                    <textarea name="message" id="message" type="text" required placeholder="Message..."
-                        class="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400"></textarea>
+                    <textarea name="message" id="message" type="text" placeholder="Message..." class="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400" required></textarea>
                 </div>
                 <div>
                     <button type="submit"
@@ -45,10 +40,6 @@
 
         </div>
     </section>
-
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

@@ -26,7 +26,7 @@ Route::get('/details/{id}', [MapsController::class, 'details'])->name('details')
 Route::get('/about', [Controller::class, 'about'])->name('about');
 
 
-Route::group(['middleware' => ['XssSanitizer']], function () {
+Route::middleware(['throttle:global'])->group(function () {
 Route::post('/email', [MailController::class, 'sendMessageGoogle']);
 });
 
