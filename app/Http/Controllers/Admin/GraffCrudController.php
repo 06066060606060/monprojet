@@ -75,7 +75,7 @@ class GraffCrudController extends CrudController
     {
         $this->crud->setValidation([
             'nom' => 'required|min:2',
-            'image' => 'required|image|mimes:jpeg,jpg,|max:4096',
+            'image' => 'required|image|mimes:jpeg,jpg',
            
         ]);
         CRUD::setValidation(GraffRequest::class);
@@ -196,7 +196,7 @@ public function createThumbnail($entry)
      
         $this->crud->setValidation([
             'nom' => 'required|min:2',
-            'image' => 'required|image|mimes:jpeg,jpg|max:3072',
+            'image' => 'required|image|mimes:jpeg,jpg',
         ]);
         CRUD::field('nom');
         CRUD::field('description');

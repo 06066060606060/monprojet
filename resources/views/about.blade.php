@@ -16,6 +16,7 @@
                             </div>
 
                         </div>
+                        {{-- <img src="/img/fille_pierres.gif" class="w-auto pt-16"> --}}
                     </div>
                     <div class="w-full px-4 mt-8 prose text-white lg:px-0 lg:w-3/4">
 
@@ -24,9 +25,11 @@
                                 <p class="mt-1 mb-4 text-3xl font-bold text-white">Mon Projet de Recherche</p>
                             </div>
                         </div>
+                       
                         <div class="flex flex-col">
                             <p class="mb-8 leading-relaxed">{{ $about[2]->value }}</p>
                         </div>
+               
                         <div class="flex justify-center pb-4 md:pb-0">
                             @include('parts.cv')
                         </div>
