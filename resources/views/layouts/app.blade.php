@@ -19,7 +19,7 @@
      <div id="sun" class="animate__animated animate__fadeInDown">
         <div class="shadow-xl objsun"></div>
      </div>
-     {{-- <img src="/img/dolphin.png" alt="" id="dolphin" class="absolute bottom-10"> --}}
+   
     <img class="treeleft absolute w-1/4 max-h-full -ml-2 md:-ml-6 max-w-[459px] pt-24 md:pt-2 -z-10" src="/img/left.png" alt="cover">
     <img class="treeright absolute right-0 w-1/4 max-w-[459px] max-h-full mt-32 -z-10" src="/img/right.png" alt="cover">
     <header>
@@ -36,8 +36,8 @@
 	<script>
         function myFunction() {
          document.getElementById("dolphin").style.animation = "dolphinus 4s ease-in-out";
-      
         }
+
         </script>
           @vite('resources/js/app.js')
 

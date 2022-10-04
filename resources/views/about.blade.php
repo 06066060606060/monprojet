@@ -11,7 +11,7 @@
                             <div class="flex w-32">
                                 <img src="/img/avatar.jpg" class="w-16 h-16 rounded-full">
                                 <div class="pt-2 pr-4 ml-4">
-                                    <p class="text-sm font-medium text-gray-900">{{ $user->name }}</p>
+                                    <p class="text-sm font-medium text-white">{{ $user->name }}</p>
                                 </div>
                             </div>
 

@@ -371,18 +371,6 @@ img{
   user-select: none;
 }
 
-#dolphin{
-  margin-bottom: -300px;
- z-index: -150;
-  transform-origin: center;
-  animation-iteration-count: infinite;
-
-}
-@keyframes dolphinus{
-  0%{transform: translateY(0px);}
-  50%{transform: translateY(-200px);}
-  100%{transform: translateY(0px);}
-}
 
 .mappopup{
   width: 200px;
