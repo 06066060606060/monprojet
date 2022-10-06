@@ -174,7 +174,7 @@ public function createThumbnail($entry)
      
         $this->crud->setValidation([
             'nom' => 'required|min:2',
-            'image' => 'required|image|mimes:jpeg,jpg',
+            
         ]);
         CRUD::field('nom');
         CRUD::field('description');
@@ -205,7 +205,7 @@ public function createThumbnail($entry)
             'temporary' => 10,
         ]);
         CRUD::field('image')->on('saving', function ($entry) {
-            $this->getExif($entry);
+          
             $this->createThumbnail($entry);
         });
     }

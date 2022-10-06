@@ -8,34 +8,17 @@ use Illuminate\Http\Request;
 
 class MapsController extends Controller
 {
-    public function getMaps($region)
+    public function getMaps()
     {
     
-        if ($region == 'nord') {
-            $graffs = Graff::where('region', 'nord')->orderBy('id', 'desc')->get();
-            $region_map = Regions::where('region', 'nord')->get();
-     
-        }
-        if ($region == 'sud') {
-            $graffs = Graff::where('region', 'sud')->orderBy('id', 'desc')->get();
-            $region_map = Regions::where('region', 'sud')->get();
-        }
-        if ($region == 'est') {
-            $graffs = Graff::where('region', 'est')->orderBy('id', 'desc')->get();
-            $region_map = Regions::where('region', 'est')->get();
-
-        }
-       if ($region == 'ouest') {
-            $graffs = Graff::where('region', 'ouest')->orderBy('id', 'desc')->get();
-            $region_map = Regions::where('region', 'ouest')->get();
-        }
-        if ($region == 'full') {
+       
             $graffs = Graff::orderBy('id', 'desc')->get();
+            $graffN = Graff::where('region', 'nord')->orderBy('id', 'desc')->get();
+            $graffS = Graff::where('region', 'sud')->orderBy('id', 'desc')->get();
+            $graffE = Graff::where('region', 'est')->orderBy('id', 'desc')->get();
+            $graffO = Graff::where('region', 'ouest')->orderBy('id', 'desc')->get();
             $region_map = Regions::all();
-        }
-        
-    
-        return view('maps', compact('graffs', 'region', 'region_map'));
+        return view('maps', compact('graffs', 'region_map','graffN', 'graffS', 'graffE', 'graffO'));
     }
     
     static public function getFullMaps(){

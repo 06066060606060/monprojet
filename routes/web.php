@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/maps/{region}', [MapsController::class, 'getMaps'])->name('getMaps');
+Route::get('/maps', [MapsController::class, 'getMaps'])->name('getMaps');
 Route::get('/details/{id}', [MapsController::class, 'details'])->name('details');
 Route::get('/about', [Controller::class, 'about'])->name('about');
 

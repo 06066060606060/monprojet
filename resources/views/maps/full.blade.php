@@ -5,7 +5,7 @@
         
         <select name="region" class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded-md appearance-none md:text-sm focus:outline-none focus:border-transparent" id="selectfilter" onchange="myRegion(this.value),mymap.closePopup();">
             <option id="optionx" value="All" selected>Region</option>
-            <option id="optionx" value="nord"  onselect="filterSelection()">Nord</option>
+            <option id="optionx" value="nord">Nord</option>
             <option id="optionx" value="sud">Sud</option>
             <option id="optionx" value="est">Est</option>
             <option id="optionx" value="ouest">Ouest</option>
@@ -40,8 +40,11 @@
             class="flex-col md:w-[85%] h-[45vh] md:h-[65vh] w-full bg-gray-300 rounded-lg overflow-hidden md:mr-4 p-10 flex items-end justify-start relative">
             <div class="absolute inset-0 z-0" id="map"></div>
         </div>
-        <div class="hidden"> {{ $graffs }}</div> 
-
+        <div class="hidden"> {{ $graffs }}</div>
+        <div class="hidden"> {{ $graffN }}</div> 
+        <div class="hidden"> {{ $graffS }}</div> 
+        <div class="hidden"> {{ $graffE }}</div> 
+        <div class="hidden"> {{ $graffO }}</div> 
         <div class="flex rounded-lg md:flex-col">
             <div class="flex md:flex-col overflow-x-auto md:h-[65vh] mr-2 pr-1 max-w-[86vw] rounded-b-lg">
                 
@@ -75,7 +78,7 @@
                         x-transition:leave="transition ease-in duration-200 transform"
                         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                        class="inline-block pt-16 overflow-hidden transition-all transform rounded-lg">
+                        class="inline-block pt-8 overflow-hidden transition-all transform rounded-lg">
                         <div class="w-full py-4 text-gray-100 bg-blue-900 shadow-xl rounded-xl">
                             <div class="flex flex-row-reverse pr-4">
                                 <img class="w-12 h-12 transition-colors duration-100 transform opacity-25 hover:opacity-100"
@@ -108,55 +111,44 @@
     </div>
 </section>
 
-<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
-//  function search()
-//     {
-//         position = document.getElementById("position").value;
-       
-//         url ='http://www.google.com/search?q='+ position;
-//         window.open(url,'_blank');
-//     }
-
-function filterSelection(){
-    console.log('filter');
-}
-
-
-    let region = {!! json_encode($region) !!};
-    let latitudemap = {!! json_encode($region_map[0]->latitude) !!};
-    let longitudemap = {!! json_encode($region_map[0]->longitude) !!};
-    let zoom = {!! json_encode($region_map[0]->zoom) !!};
-    //console.log(latitudemap)
-    let data = {!! json_encode($graffs) !!};
-
-    let mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-
-    let markers = {};
+    latitudemap = {!! json_encode($region_map[0]->latitude) !!};
+    longitudemap = {!! json_encode($region_map[0]->longitude) !!};
+    zoom = {!! json_encode($region_map[0]->zoom) !!};
+    mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
+    markers = {};
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19
     }).addTo(mymap);
 
-    let greenIcon = L.icon({
+    greenIcon = L.icon({
         iconUrl: '/img/icon.bomb.png',
         iconSize: [30, 45],
         iconAnchor: [0, 0],
         popupAnchor: [1, 1]
     });
+ 
 
-    // Loop
-    for (let i = 0; i < data.length; i++) {
-        let graff = data[i];
+     Maps('full');
 
-
-        let pics = graff.image;
-        let graffid = graff.id;
-        let graffname = graff.nom;
-        let graffdesc = graff.description;
-        let graffartiste = graff.artiste;
-        let graffposition = [graff.latitude + "  " + graff.longitude];
-        let marker = L.marker([graff.latitude, graff.longitude], {
+ function Maps(value) {
+        mymap.remove();
+        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
+        data = {!! json_encode($graffs) !!};
+        for (let i = 0; i < data.length; i++) {
+     
+        graff = data[i];
+        pics = graff.image;
+        graffid = graff.id;
+        theregion = graff.region;
+        graffname = graff.nom;
+        graffdesc = graff.description;
+        graffartiste = graff.artiste;
+        graffposition = [graff.latitude + "  " + graff.longitude];
+    
+        marker = L.marker([graff.latitude, graff.longitude], {
             icon: greenIcon
         }).addTo(mymap).bindPopup(
             '<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
@@ -168,12 +160,154 @@ function filterSelection(){
             '"><img id="popup" class="hidden mt-4" src="/storage/' + pics +
             '" />'
         );
-        markers[graff.id] = marker;
-        let flex = document.getElementById("flexid");
-        let h1 = document.createElement("h1");
-        let div = document.createElement("div");
+        markers[graff.id] = marker;   
+        flexbox();
+    }
+}
 
-        let img = document.createElement("img");
+function MapN(value) {
+        mymap.remove();
+        document.getElementById("flexid").innerHTML = "";
+        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
+        data = {!! json_encode($graffN) !!};
+        for (let i = 0; i < data.length; i++) {
+     
+        graff = data[i];
+        pics = graff.image;
+        graffid = graff.id;
+        theregion = graff.region;
+        graffname = graff.nom;
+        graffdesc = graff.description;
+        graffartiste = graff.artiste;
+        graffposition = [graff.latitude + "  " + graff.longitude];
+    
+        marker = L.marker([graff.latitude, graff.longitude], {
+            icon: greenIcon
+        }).addTo(mymap).bindPopup(
+            '<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
+            '" /><h1 onclick="myfunction(' + graff.id +
+            ')" class="py-2" id="selectphoto0">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
+            graffposition + '"><input type="text" class="hidden" id="graffnom" value="' + graffname +
+            '"><input type="text" class="hidden" id="graffartiste" value="' + graffartiste +
+            '"><input type="text" class="hidden" id="graffdesc" value="' + graffdesc +
+            '"><img id="popup" class="hidden mt-4" src="/storage/' + pics +
+            '" />'
+        );
+        markers[graff.id] = marker;   
+        flexbox();
+    }
+}
+
+function MapS(value) {
+        mymap.remove();
+        document.getElementById("flexid").innerHTML = "";
+        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
+        data = {!! json_encode($graffS) !!};
+        for (let i = 0; i < data.length; i++) {
+     
+        graff = data[i];
+        pics = graff.image;
+        graffid = graff.id;
+        theregion = graff.region;
+        graffname = graff.nom;
+        graffdesc = graff.description;
+        graffartiste = graff.artiste;
+        graffposition = [graff.latitude + "  " + graff.longitude];
+    
+        marker = L.marker([graff.latitude, graff.longitude], {
+            icon: greenIcon
+        }).addTo(mymap).bindPopup(
+            '<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
+            '" /><h1 onclick="myfunction(' + graff.id +
+            ')" class="py-2" id="selectphoto0">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
+            graffposition + '"><input type="text" class="hidden" id="graffnom" value="' + graffname +
+            '"><input type="text" class="hidden" id="graffartiste" value="' + graffartiste +
+            '"><input type="text" class="hidden" id="graffdesc" value="' + graffdesc +
+            '"><img id="popup" class="hidden mt-4" src="/storage/' + pics +
+            '" />'
+        );
+        markers[graff.id] = marker;   
+        flexbox();
+    }
+}
+
+function MapE(value) {
+        mymap.remove();
+        document.getElementById("flexid").innerHTML = "";
+        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
+        data = {!! json_encode($graffE) !!};
+        for (let i = 0; i < data.length; i++) {
+     
+        graff = data[i];
+        pics = graff.image;
+        graffid = graff.id;
+        theregion = graff.region;
+        graffname = graff.nom;
+        graffdesc = graff.description;
+        graffartiste = graff.artiste;
+        graffposition = [graff.latitude + "  " + graff.longitude];
+    
+        marker = L.marker([graff.latitude, graff.longitude], {
+            icon: greenIcon
+        }).addTo(mymap).bindPopup(
+            '<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
+            '" /><h1 onclick="myfunction(' + graff.id +
+            ')" class="py-2" id="selectphoto0">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
+            graffposition + '"><input type="text" class="hidden" id="graffnom" value="' + graffname +
+            '"><input type="text" class="hidden" id="graffartiste" value="' + graffartiste +
+            '"><input type="text" class="hidden" id="graffdesc" value="' + graffdesc +
+            '"><img id="popup" class="hidden mt-4" src="/storage/' + pics +
+            '" />'
+        );
+        markers[graff.id] = marker;   
+        flexbox();
+    }
+}
+
+function MapO() {
+    mymap.remove();
+    document.getElementById("flexid").innerHTML = "";
+    console.log('mapo');
+    mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
+        data = {!! json_encode($graffO) !!};
+        for (let i = 0; i < data.length; i++) {
+     
+        graff = data[i];
+        pics = graff.image;
+        graffid = graff.id;
+        theregion = graff.region;
+        graffname = graff.nom;
+        graffdesc = graff.description;
+        graffartiste = graff.artiste;
+        graffposition = [graff.latitude + "  " + graff.longitude];
+    
+        marker = L.marker([graff.latitude, graff.longitude], {
+            icon: greenIcon
+        }).addTo(mymap).bindPopup(
+            '<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
+            '" /><h1 onclick="myfunction(' + graff.id +
+            ')" class="py-2" id="selectphoto0">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
+            graffposition + '"><input type="text" class="hidden" id="graffnom" value="' + graffname +
+            '"><input type="text" class="hidden" id="graffartiste" value="' + graffartiste +
+            '"><input type="text" class="hidden" id="graffdesc" value="' + graffdesc +
+            '"><img id="popup" class="hidden mt-4" src="/storage/' + pics +
+            '" />'
+        );
+        markers[graff.id] = marker;   
+        flexbox();
+    }
+}
+
+
+function flexbox(){
+         flex = document.getElementById("flexid");
+         h1 = document.createElement("h1");
+         div = document.createElement("div");
+         img = document.createElement("img");
 
         h1.setAttribute("class", "h-3 text-xs text-white font mb-2 mt-1 mx-auto text-center w-[140px]");
         h1.innerHTML = graffname;
@@ -189,11 +323,9 @@ function filterSelection(){
   
         flex.appendChild(div);
         div.appendChild(img);
+}
 
-
-    }
-
-
+//GET  MY LOCATION
     function getLocation() {
         console.log('get-location');
       
@@ -210,11 +342,16 @@ function filterSelection(){
             });
         
     }
+
+
+    // FULL SCREEN
     themap = document.getElementById('map');
     function fullscreen() {
         themap.requestFullscreen();
     }
    
+
+// JUMP TO GRAFF
     function centerMapOnPost(id) {
         mymap.closePopup();
         mymap.flyTo(markers[id].getLatLng(), 18);
@@ -241,17 +378,61 @@ function filterSelection(){
         var graffposition = document.getElementById("graffposition").value;
         document.getElementById("position").innerHTML = graffposition;
 
-
         mymap.closePopup();
 
     }
 
+    // FLY TO MY LOCATION
     function myLocation(lat, long) {
         mymap.flyTo([lat, long], 14);
         mymap.closePopup();
     }
 
-    function myVille(value) {
+
+
+    // JUMP TO REGION
+    function myRegion(value) {
+        if (value == "nord") {
+           
+            let zoom = {!! json_encode($region_map[1]->zoom) !!};
+            let latitudemap = {!! json_encode($region_map[1]->latitude) !!};
+            let longitudemap = {!! json_encode($region_map[1]->longitude) !!};
+            MapN();
+            mymap.flyTo([latitudemap, longitudemap], zoom);
+            mymap.closePopup();
+        } else if (value == "sud") {
+            let zoom = {!! json_encode($region_map[2]->zoom) !!};
+            let latitudemap = {!! json_encode($region_map[2]->latitude) !!};
+            let longitudemap = {!! json_encode($region_map[2]->longitude) !!};
+            MapS();
+            mymap.flyTo([latitudemap, longitudemap], zoom);
+            mymap.closePopup();
+        } else if (value == "est") {
+            let zoom = {!! json_encode($region_map[4]->zoom) !!};
+            let latitudemap = {!! json_encode($region_map[4]->latitude) !!};
+            let longitudemap = {!! json_encode($region_map[4]->longitude) !!};
+            MapE();
+            mymap.flyTo([latitudemap, longitudemap], zoom);
+            mymap.closePopup();
+        } else if (value == "ouest") {
+            let zoom = {!! json_encode($region_map[3]->zoom) !!};
+            let latitudemap = {!! json_encode($region_map[3]->latitude) !!};
+            let longitudemap = {!! json_encode($region_map[3]->longitude) !!};
+            MapO();
+            mymap.flyTo([latitudemap, longitudemap], zoom);
+            mymap.closePopup();
+        } else if (value == "All") {
+            let zoom = {!! json_encode($region_map[0]->zoom) !!};
+            let latitudemap = {!! json_encode($region_map[0]->latitude) !!};
+            let longitudemap = {!! json_encode($region_map[0]->longitude) !!};
+            Maps();
+            mymap.closePopup();
+            mymap.flyTo([latitudemap, longitudemap], zoom);
+        }
+    }
+
+        // JUMP TO VILLE
+        function myVille(value) {
         if (value == "All") {
             let zoom = 10;
             let latitudemap = -21.10;
@@ -284,41 +465,4 @@ function filterSelection(){
             mymap.closePopup();
         }
     }
-
-    function myRegion(value) {
-        if (value == "nord") {
-            let zoom = {!! json_encode($region_map[1]->zoom) !!};
-            let latitudemap = {!! json_encode($region_map[1]->latitude) !!};
-            let longitudemap = {!! json_encode($region_map[1]->longitude) !!};
-            mymap.flyTo([latitudemap, longitudemap], zoom);
-            mymap.closePopup();
-        } else if (value == "sud") {
-            let zoom = {!! json_encode($region_map[2]->zoom) !!};
-            let latitudemap = {!! json_encode($region_map[2]->latitude) !!};
-            let longitudemap = {!! json_encode($region_map[2]->longitude) !!};
-            mymap.flyTo([latitudemap, longitudemap], zoom);
-            mymap.closePopup();
-        } else if (value == "est") {
-            let zoom = {!! json_encode($region_map[4]->zoom) !!};
-            let latitudemap = {!! json_encode($region_map[4]->latitude) !!};
-            let longitudemap = {!! json_encode($region_map[4]->longitude) !!};
-            mymap.flyTo([latitudemap, longitudemap], zoom);
-            mymap.closePopup();
-        } else if (value == "ouest") {
-            let zoom = {!! json_encode($region_map[3]->zoom) !!};
-            let latitudemap = {!! json_encode($region_map[3]->latitude) !!};
-            let longitudemap = {!! json_encode($region_map[3]->longitude) !!};
-            mymap.flyTo([latitudemap, longitudemap], zoom);
-            mymap.closePopup();
-        } else if (value == "All") {
-            let zoom = {!! json_encode($region_map[0]->zoom) !!};
-            let latitudemap = {!! json_encode($region_map[0]->latitude) !!};
-            let longitudemap = {!! json_encode($region_map[0]->longitude) !!};
-
-            mymap.closePopup();
-            mymap.flyTo([latitudemap, longitudemap], zoom);
-        }
-    }
-
-    
 </script>
