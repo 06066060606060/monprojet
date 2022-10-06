@@ -20,14 +20,14 @@
 
     
     <script>
-        function paint() {
-            var opacity = document.getElementById("title").style.opacity;
-            document.getElementById("title").style.opacity = opacity ? (parseFloat(opacity) + 0.05) : 0.1;
-        }
-        function changepaint() {
-            setInterval(paint, 150);
+        // function paint() {
+        //     var opacity = document.getElementById("title").style.opacity;
+        //     document.getElementById("title").style.opacity = opacity ? (parseFloat(opacity) + 0.05) : 0.1;
+        // }
+        // function changepaint() {
+        //     setInterval(paint, 150);
 
-        }
+        // }
 
 // (function() {
 //     // Add event listener
