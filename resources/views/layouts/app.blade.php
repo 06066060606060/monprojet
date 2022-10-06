@@ -33,11 +33,11 @@
     <footer>  
         @include('parts.footer')
     </footer>
+
 	<script>
         function myFunction() {
          document.getElementById("dolphin").style.animation = "dolphinus 4s ease-in-out";
         }
-
         </script>
           @vite('resources/js/app.js')
 

@@ -19,7 +19,7 @@
 
             <form id="add-user-form" method="post" action="/email" class="container w-full max-w-xl p-8 mx-auto space-y-6 bg-blue-900 shadow rounded-xl">
                 @csrf
-                <h2 class="w-full text-3xl font-boldleading-tight text-white">Contactez Moi</h2>
+                <h2 class="w-full text-3xl text-white font-boldleading-tight">Contactez Moi</h2>
                 <div>
                     <label for="name" class="block mb-1 ml-1 text-white">Nom Prénom</label>
                     <input name="name" type="text" id="name" placeholder="Nom Prénom"  class="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400" required>
@@ -42,8 +42,6 @@
     </section>
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
                 function PopupUser() {
                     console.log('okpop');

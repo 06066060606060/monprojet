@@ -57,7 +57,6 @@ class GraffCrudController extends CrudController
         CRUD::column('nom');
         CRUD::column('artiste');
         CRUD::column('region');
-        CRUD::column('ville');
         $this->getFieldsData();
 
     }
@@ -83,27 +82,6 @@ class GraffCrudController extends CrudController
         CRUD::field('description');
         CRUD::field('artiste');
         CRUD::field('adresse');
-        $this->crud->addField([   // select_from_array
-            'name'        => 'ville',
-            'label'       => "ville",
-            'type'        => 'select_from_array',
-            'options'     => [
-                'Saint-Denis' => 'Saint-Denis',
-                'Saint-Pierre' => 'Saint-Pierre',
-                'Saint-Paul' => 'Saint-Paul',
-                'Saint-Joseph' => 'Saint-Joseph',
-                'Saint-Louis' => 'Saint-Louis',
-                'Saint-Benoît' => 'Saint-Benoît',
-                'Saint-André' => 'Saint-André',
-                'Saint-Gilles' => 'Saint-Gilles',
-                'Saint-Leu' => 'Saint-Leu',
-                'Le Tampon' => 'Le Tampon',
-            ],
-
-            'allows_null' => false,
-            'default'     => 'one',
-            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
-        ]);
         $this->crud->addField([   // select_from_array
             'name'        => 'region',
             'label'       => "region",
@@ -202,32 +180,7 @@ public function createThumbnail($entry)
         CRUD::field('description');
         CRUD::field('artiste');
         CRUD::field('adresse');
-        $this->crud->addField([   // select_from_array
-            'name'        => 'ville',
-            'label'       => "ville",
-            'type'        => 'select_from_array',
-            'options'     => [
-                'Saint-Denis' => 'Saint-Denis',
-                'Saint-Pierre' => 'Saint-Pierre',
-                'Saint-Paul' => 'Saint-Paul',
-                'Le Port' => 'Le Port',
-                'La Saline' => 'La Saline',
-                'Saint-Joseph' => 'Saint-Joseph',
-                'Saint-Louis' => 'Saint-Louis',
-                'Saint-Benoît' => 'Saint-Benoît',
-                'Sainte-Suzanne' => 'Sainte-Suzanne',
-                'Saint-André' => 'Saint-André',
-                'Saint-Gilles' => 'Saint-Gilles',
-                'Saint-Leu' => 'Saint-Leu',
-                'Le Tampon' => 'Le Tampon',
-                'test' => 'test',
-            ],
-
-            'allows_null' => false,
-            'default'     => 'one',
-            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
-        ]);
-        $this->crud->addField([   // select_from_array
+        $this->crud->addField([   
             'name'        => 'region',
             'label'       => "region",
             'type'        => 'select_from_array',
@@ -237,16 +190,13 @@ public function createThumbnail($entry)
                 'Est' => 'Est',
                 'Ouest' => 'Ouest',
             ],
-
             'allows_null' => false,
             'default'     => 'one',
-            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
         CRUD::field('image');
         CRUD::field('latitude');
         CRUD::field('longitude');
-
-        CRUD::addField([ // Photo
+        CRUD::addField([ 
             'name'      => 'image',
             'label'     => 'Image',
             'type'      => 'upload',
@@ -255,7 +205,7 @@ public function createThumbnail($entry)
             'temporary' => 10,
         ]);
         CRUD::field('image')->on('saving', function ($entry) {
-           
+            $this->getExif($entry);
             $this->createThumbnail($entry);
         });
     }

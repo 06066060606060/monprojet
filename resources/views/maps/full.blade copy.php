@@ -5,7 +5,7 @@
         
         <select name="region" class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded-md appearance-none md:text-sm focus:outline-none focus:border-transparent" id="selectfilter" onchange="myRegion(this.value),mymap.closePopup();">
             <option id="optionx" value="All" selected>Region</option>
-            <option id="optionx" value="nord"  onselect="filterSelection()">Nord</option>
+            <option id="optionx" value="nord">Nord</option>
             <option id="optionx" value="sud">Sud</option>
             <option id="optionx" value="est">Est</option>
             <option id="optionx" value="ouest">Ouest</option>
@@ -40,21 +40,22 @@
             class="flex-col md:w-[85%] h-[45vh] md:h-[65vh] w-full bg-gray-300 rounded-lg overflow-hidden md:mr-4 p-10 flex items-end justify-start relative">
             <div class="absolute inset-0 z-0" id="map"></div>
         </div>
-        <div class="hidden"> {{ $graffs }}</div> 
 
         <div class="flex rounded-lg md:flex-col">
-            <div class="flex md:flex-col overflow-x-auto md:h-[65vh] mr-2 pr-1 max-w-[86vw] rounded-b-lg">
-                
-                    <div id="flexid" class="flex py-1 md:flex-col ">
-                     
-
-
+            <div class="flex md:flex-col overflow-x-auto md:h-[65vh] mr-2 pr-1 max-w-[86vw]">
+                @foreach ($graffs as $graff)
+                    <div class="flex py-1 md:flex-col">
+                        <div id="selectphoto" class="py-2 my-2 transition-colors duration-100 transform  rounded-lg w-[135px] mx-1 h-[130px] md:h-[90px]" id="graff{{ $graff->id }}" onclick="centerMapOnPost({{ $graff->id }})">
+                            <h1 class="h-3 text-xs text-white font mb-2 -mt-1 text-center w-[140px]">{{ $graff->nom }}</h1>
+                            <div class="flex">
+                                <img src="/storage/miniatures/{{ $graff->image }}" alt="" class="object-cover w-48 h-20 rounded-b-lg shadow-lg object-f cryspy">
+                            </div>
+                        </div>
                     </div>
-     
+                @endforeach
             </div>
         </div>
     </div>
-    
     <div class="h-0">
         <div x-data="{ modelOpen: false }" class="z-50">
             <button @click="modelOpen =!modelOpen" id="secondary-button" class=""></button>
@@ -111,18 +112,13 @@
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
-//  function search()
-//     {
-//         position = document.getElementById("position").value;
+ function search()
+    {
+        position = document.getElementById("position").value;
        
-//         url ='http://www.google.com/search?q='+ position;
-//         window.open(url,'_blank');
-//     }
-
-function filterSelection(){
-    console.log('filter');
-}
-
+        url ='http://www.google.com/search?q='+ position;
+        window.open(url,'_blank');
+    }
 
     let region = {!! json_encode($region) !!};
     let latitudemap = {!! json_encode($region_map[0]->latitude) !!};
@@ -148,8 +144,6 @@ function filterSelection(){
     // Loop
     for (let i = 0; i < data.length; i++) {
         let graff = data[i];
-
-
         let pics = graff.image;
         let graffid = graff.id;
         let graffname = graff.nom;
@@ -161,7 +155,7 @@ function filterSelection(){
         }).addTo(mymap).bindPopup(
             '<div class="mappopup"><img class="mt-4" src="/storage/miniatures/' + pics +
             '" /><h1 onclick="myfunction(' + graff.id +
-            ')" class="py-2" id="selectphoto0">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
+            ')" class="py-2" id="selectphoto">Plus d\'info</h1></div><input type="text" class="hidden" id="graffposition" value="' +
             graffposition + '"><input type="text" class="hidden" id="graffnom" value="' + graffname +
             '"><input type="text" class="hidden" id="graffartiste" value="' + graffartiste +
             '"><input type="text" class="hidden" id="graffdesc" value="' + graffdesc +
@@ -169,30 +163,9 @@ function filterSelection(){
             '" />'
         );
         markers[graff.id] = marker;
-        let flex = document.getElementById("flexid");
-        let h1 = document.createElement("h1");
-        let div = document.createElement("div");
-
-        let img = document.createElement("img");
-
-        h1.setAttribute("class", "h-3 text-xs text-white font mb-2 mt-1 mx-auto text-center w-[140px]");
-        h1.innerHTML = graffname;
-        div.setAttribute("class", graff.region);
-        div.setAttribute("id", "graff" + graff.id);
-        div.setAttribute("onclick", "centerMapOnPost(" + graff.id + ")");
-        div.setAttribute("id", "selectphoto");
-     
-        img.setAttribute("class", "object-cover w-48 h-20 rounded-b-lg shadow-lg object-f cryspy pl-0 pr-0");
-        img.setAttribute("src", "/storage/miniatures/" + pics);
-
-        div.appendChild(h1);
-  
-        flex.appendChild(div);
-        div.appendChild(img);
-
-
     }
 
+    
 
     function getLocation() {
         console.log('get-location');
@@ -319,6 +292,4 @@ function filterSelection(){
             mymap.flyTo([latitudemap, longitudemap], zoom);
         }
     }
-
-    
 </script>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeoGraff</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="module" src="http://127.0.0.1:5173/@vite/client"></script><link rel="stylesheet" href="http://127.0.0.1:5173/resources/css/app.css" /><meta name="csrf-token" content="KlSl1hrIav5FdhO5cokTO928kbFVuaTLu6XKoQnR">
+<!-- Primary Meta Tags -->
+<title>GeoGraff — Océane Argelas</title>
+<meta name="title" content="GeoGraff — Océane Argelas">
+<meta name="description" content="A la découverte du Street-Art à la Réunion">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:title" content="GeoGraff — Océane Argelas">
+<meta property="og:description" content="A la découverte du Street-Art à la Réunion">
+<meta property="og:image" content="/img/meta.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="">
+<meta property="twitter:title" content="GeoGraff — Océane Argelas">
+<meta property="twitter:description" content="A la découverte du Street-Art à la Réunion">
+<meta property="twitter:image" content="/img/meta.jpg"></head>
+
+<body id="backgradient">
+    <div id="cloud1" class="-z-20 animate__animated animate__fadeInLeftBig">
+        <div class="shadow-xl obl obl1 "></div>
+         <div class="obl obl2"></div>
+         <div class="obl obl3"></div>
+     </div>
+     <div id="cloud2" class="hidden -z-20 animate__animated animate__fadeInLeftBig md:block ">
+        <div class="shadow-xl obl obl1"></div>
+         <div class="obl obl2"></div>
+         <div class="obl obl3"></div>
+     </div>
+     <div id="sun" class="animate__animated animate__fadeInDown">
+        <div class="shadow-xl objsun"></div>
+     </div>
+   
+    <img class="treeleft absolute w-1/4 max-h-full -ml-2 md:-ml-6 max-w-[459px] pt-24 md:pt-2 -z-10" src="./img/left.png" alt="cover">
+    <img class="treeright absolute right-0 w-1/4 max-w-[459px] max-h-full mt-32 -z-10" src="./img/right.png" alt="cover">
+    <header>
+        <div class="sticky z-10 flex justify-center pt-8 text-base font-medium navigation top-6">
+    <div class="flex flex-row justify-center px-2 py-2 text-white bg-blue-800 border border-white rounded-full shadow-lg ">
+      <a class="pl-4 pr-2 transition-colors duration-300 transform hover:text-green-400" href="/">Accueil</a>
+      <a class="px-2 transition-colors duration-300 transform hover:text-green-400" href="/maps/full">La Carte</a>
+      <a class="px-2 transition-colors duration-300 transform hover:text-green-400" href="/about">Mon Projet</a>
+      <a class="pl-2 pr-4 transition-colors duration-300 transform hover:text-green-400" href="/contact">Contact</a>
+    </div>
+  </div>    </header>
+
+    <main>
+            <!-- BLOCK 1 -->
+    <section id="full" class="m-4 text-gray-600 bckg">
+        <div  class="max-w-[90%] flex flex-col items-center justify-center mx-auto pt-24 md:pt-4">
+            <img id="logo" class="object-cover object-center w-[80vh] select-none" alt="hero" src="./img/Home_Logo.png">
+
+            <img id= "paint" class="absolute select-none md:mt-4 w-[75%] md:w-auto" alt="hero" src="./img/paint.png">
+
+            <img id="geograff" class="absolute -mt-2 w-[60%] md:w-auto md:p-8 select-none" alt="hero" src="./img/title.png">
+
+            <img id="title" class="absolute -mt-2 w-[60%] md:w-auto md:p-8 select-none opacity-0" alt="hero" src="./img/title2.png">
+  
+            <img class="absolute select-none w-[80%] md:mt-8 md:w-auto" alt="hero" src="./img/bombe.png" id="bomb">
+   
+            <img class="absolute mt-32  w-[60%] md:w-auto select-none z-50" alt="hero" src="./img/soustitre.png" onclick="changepaint()">
+        </div>
+    </section>
+
+    
+    <script>
+        function paint() {
+            var opacity = document.getElementById("title").style.opacity;
+            document.getElementById("title").style.opacity = opacity ? (parseFloat(opacity) + 0.05) : 0.1;
+        }
+        function changepaint() {
+            setInterval(paint, 200);
+
+        }
+
+(function() {
+    // Add event listener
+    document.addEventListener("mousemove", parallax);
+    const elem = document.querySelector("#full")
+    // Magic happens here
+    function parallax(e) {
+        let _w = window.innerWidth/4;
+        let _h = window.innerHeight/4;
+        let _mouseX = e.clientX;
+        let _mouseY = e.clientY;
+        let _depthX = `${30 - (_mouseX - _w) * 0.001}`;
+        let _depthY = `${34 - (_mouseY - _h) * 0.001}`;
+        let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${50 - (_mouseY - _h) * 0.02}%`;
+        let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${50 - (_mouseY - _h) * 0.06}%`;
+       // let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+        console.log(_depthY);
+        elem.style.top = _depthY + '%';
+        elem.style.marginleft = _depthX +'%';
+    }
+
+})();
+
+
+
+    </script>
+    </main>
+
+    <footer>  
+        <!-- footer -->
+
+<section id="footer">
+    
+   <img src="./img/wavesm.svg" class="fixed md:hidden bottom-5 xl:-bottom-50">
+   <img src="./img/wave.svg" class="fixed hidden md:block bottom-5 xl:-bottom-50">
+</section>
+<div class="fixed bottom-0 block w-full bg-blue-600">
+   <div class="container flex flex-col items-center px-5 py-2 mx-auto mt-1 -z-50">
+     <span class="inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
+      
+       <a class="ml-3 text-black">
+         <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+           <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+         </svg>
+       </a>
+      
+       <a href="/admin" class="ml-3 text-black">
+        Dashboard
+       </a>
+     </span>
+   </div>
+</div>    </footer>
+	<script>
+        function myFunction() {
+         document.getElementById("dolphin").style.animation = "dolphinus 4s ease-in-out";
+        }
+
+        </script>
+          <script type="module" src="http://127.0.0.1:5173/@vite/client"></script><script type="module" src="http://127.0.0.1:5173/resources/js/app.js"></script>
+</body>
+
+</html>

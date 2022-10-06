@@ -27,7 +27,7 @@ Route::get('/about', [Controller::class, 'about'])->name('about');
 
 
 Route::middleware(['throttle:global'])->group(function () {
-Route::post('/email', [MailController::class, 'sendMessageGoogle']);
+Route::post('/email', [MailController::class, 'sendMessageGoogle'])->middleware(XssSanitizer::class);
 });
 
 
