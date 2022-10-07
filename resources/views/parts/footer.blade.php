@@ -5,7 +5,7 @@
    <img src="/img/wavesm.svg" class="fixed md:hidden bottom-5 xl:-bottom-50 mx-0">
    <img src="/img/wave.svg" class="fixed hidden md:block bottom-5 xl:-bottom-50  mx-0">
 </section>
-<div class="fixed bottom-0 block w-full bg-blue-600">
+<div class="fixed bottom-0 block w-full bg-[#256bff]">
    <div class="container flex flex-col items-center px-5 py-2 mx-auto mt-1 -z-50">
      <span class="inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
       

@@ -12,7 +12,7 @@
 
             <img id="title" class="absolute -mt-2 w-[60%] md:w-auto md:p-8 select-none opacity-0" alt="hero" src="./img/title2.png">
   
-            <img class="absolute select-none w-[80%] md:mt-8 md:w-auto" alt="hero" src="./img/bombe.png" id="bomb"  onclick="changepaint()">
+            <img class="absolute select-none w-[80%] md:mt-8 md:w-auto" alt="hero" src="./img/bombe.png" id="bomb">
    
             <img class="absolute mt-32  w-[60%] md:w-auto select-none z-50 animate__animated animate__fadeInUp animate__slow" alt="hero" src="./img/soustitre.png">
         </div>
@@ -32,7 +32,8 @@
 // (function() {
 //     // Add event listener
 //     document.addEventListener("mousemove", parallax);
-//     const elem = document.querySelector("#full")
+//     const elem = document.querySelector("#geograff")
+//     const elem2 = document.querySelector("#paint")
 //     // Magic happens here
 //     function parallax(e) {
 //         let _w = window.innerWidth/4;
@@ -47,6 +48,7 @@
 //         console.log(_depthY);
 //         elem.style.top = _depthY + '%';
 //         elem.style.marginleft = _depthX +'%';
+//         elem2.style.top = _depthX +'%';
 //     }
 
 // })();

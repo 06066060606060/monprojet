@@ -14,7 +14,7 @@
         </select>
 
         <select name="ville"
-            class="h-8 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
+            class="h-8 py-1 mx-1 px-2 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
             id="selectfilter" onchange="myVille(this.value),mymap.closePopup();">
             <option id="optionx" value="All" selected>ville</option>
             <option id="optionx" value="Saint-Denis">Saint-Denis</option>
@@ -92,9 +92,9 @@
                                     src="/img/iconclose.png" @click="modelOpen = false">
                             </div>
                             <div class="container flex flex-col px-5 mx-auto">
-                                <div class="flex flex-col w-5xl">
+                                <div class="flex flex-col w-5xl items-center">
 
-                                    <h1 id="graffname" class="max-w-5xl text-4xl font-bold leading-none text-white">
+                                    <h1 id="graffname" class="max-w-5xl text-4xl font-bold leading-none text-white text-center">
                                     </h1>
                                     <div class="flex flex-col items-center">
                                         <p id="descr" class="max-w-md pt-2 text-base text-white"></p>
