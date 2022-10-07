@@ -17,7 +17,7 @@
 
         <div class="container flex flex-col px-5 pt-16 mx-auto md:pt-32">
 
-            <form id="add-user-form" method="post" action="/email" class="container w-full max-w-xl p-8 mx-auto space-y-6 bg-blue-900 shadow rounded-xl">
+            <form id="add-user-form" method="post" action="/email" class="container w-full max-w-xl p-8 mx-auto space-y-6 bg-blue-900 opacity-90 shadow rounded-xl">
                 @csrf
                 <h2 class="w-full text-3xl text-white font-boldleading-tight">Contactez Moi</h2>
                 <div>

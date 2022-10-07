@@ -5,7 +5,7 @@
     <section class="z-10">
         <div class="max-w-screen-lg px-4 pt-1 mx-auto md:py-16 sm:px-6 lg:px-8">
             <div class="w-full px-5 py-12 mx-auto lg:px-32">
-                <div class="flex flex-col p-8 bg-blue-900 shadow-xl lg:flex-row lg:space-x-12 rounded-xl">
+                <div class="flex flex-col p-8 bg-blue-900 opacity-90 shadow-xl lg:flex-row lg:space-x-12 rounded-xl">
                     <div class="order-last w-full max-w-screen-sm m-auto mt-0 md:mt-12 lg:w-1/4 lg:order-first">
                         <div class="p-4 transition duration-500 ease-in-out transform bg-blue-600 rounded-lg shadow-xl">
                             <div class="flex w-32">
