@@ -18,7 +18,7 @@
 			animation-delay: 2s;
 			animation: animateF 12s infinite;
 			transform-origin: center;
-			opacity: 95%;
+			opacity: 90%;
 		}
 
 		@keyframes animateF {

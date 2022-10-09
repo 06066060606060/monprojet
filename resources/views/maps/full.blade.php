@@ -4,9 +4,10 @@
 
 
         <select name="region"
-            class="h-8 py-1 mx-1 px-2 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
+            class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none my_select md:text-sm focus:outline-none focus:border-transparent"
             id="selectfilter" onchange="myRegion(this.value),mymap.closePopup();">
             <option id="optionx" value="All" selected>Region</option>
+            <option id="optionx" value="All">Toutes</option>
             <option id="optionx" value="nord">Nord</option>
             <option id="optionx" value="sud">Sud</option>
             <option id="optionx" value="est">Est</option>
@@ -14,11 +15,11 @@
         </select>
 
         <select name="ville"
-            class="h-8 py-1 mx-1 px-2 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
-            id="selectfilter" onchange="myVille(this.value),mymap.closePopup();">
+            class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
+            id="selectfilter2" onchange="myVille(this.value),mymap.closePopup();">
             <option id="optionx" value="All" selected>ville</option>
             <option id="optionx" value="Saint-Denis">Saint-Denis</option>
-            <option id="optionx" id="optionx" value="Saint-Pierre">Saint-Pierre</option>
+            <option id="optionx" value="Saint-Pierre">Saint-Pierre</option>
             <option id="optionx" value="Saint-Paul">Saint-Paul</option>
             <option id="optionx" value="Saint-Louis">Saint-Louis</option>
             {{-- <option value="Saint-Benoit">Saint-Benoit</option>
@@ -54,7 +55,10 @@
         <div class="hidden"> {{ $graffO }}</div>
         <div class="flex rounded-lg md:flex-col">
             <div class="flex md:flex-col overflow-x-auto md:h-[65vh] mr-2 pr-1 max-w-[87vw] rounded-b-lg">
-
+                <div id="flexUp" class="flex flex-col justify-between py-1 md:flex-row">
+                <h1 id="RegionData" class="px-2 text-white"></h1>
+                <h1 id="GraffData" class="px-2 text-white"></h1>
+                </div>
                 <div id="flexid" class="flex py-1 md:flex-col ">
 
 
@@ -86,15 +90,15 @@
                         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         class="inline-block pt-8 overflow-hidden transition-all transform rounded-lg">
-                        <div class="w-full py-4 text-gray-100 bg-blue-900 shadow-xl rounded-xl">
+                        <div class="w-full py-4 text-gray-100 bg-blue-900 border rounded-xl">
                             <div class="flex flex-row-reverse pr-4">
                                 <img class="w-12 h-12 transition-colors duration-100 transform opacity-25 hover:opacity-100"
                                     src="/img/iconclose.png" @click="modelOpen = false">
                             </div>
                             <div class="container flex flex-col px-5 mx-auto">
-                                <div class="flex flex-col w-5xl items-center">
+                                <div class="flex flex-col items-center w-5xl">
 
-                                    <h1 id="graffname" class="max-w-5xl text-4xl font-bold leading-none text-white text-center">
+                                    <h1 id="graffname" class="max-w-5xl text-4xl font-bold leading-none text-center text-white">
                                     </h1>
                                     <div class="flex flex-col items-center">
                                         <p id="descr" class="max-w-md pt-2 text-base text-white"></p>
@@ -121,6 +125,7 @@
 <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
     integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
+
     latitudemap = {!! json_encode($region_map[0]->latitude) !!};
     longitudemap = {!! json_encode($region_map[0]->longitude) !!};
     zoom = {!! json_encode($region_map[0]->zoom) !!};
@@ -140,16 +145,21 @@
 
 
     Maps('full');
-
+   
     function Maps(value) {
+        document.getElementById("RegionData").innerHTML = "Total:";
+       
+        
         mymap.remove();
         mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19
         }).addTo(mymap);
         data = {!! json_encode($graffs) !!};
+       
+        let count = 0;
         for (let i = 0; i < data.length; i++) {
-
+            count = count + 1;
             graff = data[i];
             pics = graff.image;
             graffid = graff.id;
@@ -173,11 +183,20 @@
             );
             markers[graff.id] = marker;
             flexbox();
+            document.getElementById("GraffData").innerHTML = count;
         }
     }
 
+    function reset(){
+document.getElementById("selectfilter").selectedIndex = 0;
+document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
+}
+
     function MapN(value) {
+        document.getElementById("RegionData").innerHTML = "Nord";
+        reset();
         mymap.remove();
+       
         document.getElementById("flexid").innerHTML = "";
         mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -185,9 +204,10 @@
         }).addTo(mymap);
         data = {!! json_encode($graffN) !!};
 
-
+        let count = 0;
 
         for (let i = 0; i < data.length; i++) {
+            count = count + 1;
             graff = data[i];
             pics = graff.image;
             graffid = graff.id;
@@ -212,11 +232,14 @@
             markers[graff.id] = marker;
         
             flexbox();
+            document.getElementById("GraffData").innerHTML = count;
         }
 
     }
 
     function MapS(value) {
+        document.getElementById("RegionData").innerHTML = "Sud";
+        reset();
         mymap.remove();
         document.getElementById("flexid").innerHTML = "";
         mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
@@ -224,8 +247,11 @@
             maxZoom: 19
         }).addTo(mymap);
         data = {!! json_encode($graffS) !!};
-        for (let i = 0; i < data.length; i++) {
 
+
+        let count = 0;
+        for (let i = 0; i < data.length; i++) {
+            count = count + 1;
             graff = data[i];
             pics = graff.image;
             graffid = graff.id;
@@ -249,10 +275,13 @@
             );
             markers[graff.id] = marker;
             flexbox();
+            document.getElementById("GraffData").innerHTML = count;
         }
     }
 
     function MapE(value) {
+        document.getElementById("RegionData").innerHTML = "Est";
+        reset();
         mymap.remove();
         document.getElementById("flexid").innerHTML = "";
         mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
@@ -260,8 +289,9 @@
             maxZoom: 19
         }).addTo(mymap);
         data = {!! json_encode($graffE) !!};
+        let count = 0;
         for (let i = 0; i < data.length; i++) {
-
+            count = count + 1;
             graff = data[i];
             pics = graff.image;
             graffid = graff.id;
@@ -285,10 +315,13 @@
             );
             markers[graff.id] = marker;
             flexbox();
+            document.getElementById("GraffData").innerHTML = count;
         }
     }
 
     function MapO() {
+        document.getElementById("RegionData").innerHTML = "Ouest";
+        reset();
         mymap.remove();
         document.getElementById("flexid").innerHTML = "";
         console.log('mapo');
@@ -297,8 +330,9 @@
             maxZoom: 19
         }).addTo(mymap);
         data = {!! json_encode($graffO) !!};
+        let count = 0;
         for (let i = 0; i < data.length; i++) {
-
+            count = count + 1;
             graff = data[i];
             pics = graff.image;
             graffid = graff.id;
@@ -323,6 +357,7 @@
             markers[graff.id] = marker;
          
             flexbox();
+            document.getElementById("GraffData").innerHTML = count;
         }
     }
 
