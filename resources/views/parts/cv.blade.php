@@ -22,7 +22,7 @@
                 class="inline-block pt-16 overflow-hidden transition-all transform rounded-lg">
                 <section class="">
                     {{-- @click="modelOpen = false" --}}
-                    <div class="w-full py-8 space-y-3 text-gray-100 bg-blue-900 shadow-xl rounded-xl">
+                    <div class="w-full py-8 space-y-3 text-gray-100 bg-blue-900 border border-blue-600 shadow-xl rounded-xl">
                         <div class="container flex flex-col px-5 mx-auto">
                             <div class="w-full">
                                 <h1 class="mb-4 text-3xl font-medium text-center text-white sm:text-4xl">Mon CV

@@ -22,25 +22,28 @@
             <option id="optionx" value="Saint-Pierre">Saint-Pierre</option>
             <option id="optionx" value="Saint-Paul">Saint-Paul</option>
             <option id="optionx" value="Saint-Louis">Saint-Louis</option>
-            {{-- <option value="Saint-Benoit">Saint-Benoit</option>
-          <option id="optionx" value="Sainte-Marie">Sainte-Marie</option>
-            <option id="optionx" value="Sainte-Suzanne">Sainte-Suzanne</option>
-            <option id="optionx" value="Sainte-Anne">Sainte-Anne</option>
-            <option  id="optionx" value="Sainte-Rose">Sainte-Rose</option> --}}
+        </select>
 
+        <select name="Layer"
+            class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
+            id="selectfilter2" onchange="layer(this.value)">
+            <option id="optionx" value="1" selected>OSM</option>
+            <option id="optionx" value="2">MAP</option>
+            <option id="optionx" value="3">GEO</option>
+            <option id="optionx" value="4">TOPO</option>
+            <option id="optionx" value="5">CyclOSM</option>
         </select>
 
         <button name="proxi" class="h-8 px-4 my-1 text-xs text-white appearance-none md:text-sm" id="selectbtn"
             onclick="getLocation()">A proximité</button>
 
+
+            
         <button name="full" class="h-8 px-4 mx-1 my-1 text-xs text-center text-white appearance-none" id="selectbtn"
             onclick="fullscreen()">
             <img src="/img/fullscreen.png" alt="fullscreen" width="14" height="14">
         </button>
-        <div class="text-white">
-            {{-- <span id="num"></span><br>
-            <span id="position0"></span> --}}
-        </div>
+       
     </div>
 
     <div class="container flex flex-wrap mx-auto md:flex-nowrap">
@@ -90,7 +93,7 @@
                         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         class="inline-block pt-8 overflow-hidden transition-all transform rounded-lg">
-                        <div class="w-full py-4 text-gray-100 bg-blue-900 border rounded-xl">
+                        <div class="w-full py-4 text-gray-100 bg-blue-900 border border-blue-600 rounded-xl">
                             <div class="flex flex-row-reverse pr-4">
                                 <img class="w-12 h-12 transition-colors duration-100 transform opacity-25 hover:opacity-100"
                                     src="/img/iconclose.png" @click="modelOpen = false">
@@ -122,41 +125,93 @@
     </div>
 </section>
 
-<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
-
+    maplayer = 1;
     latitudemap = {!! json_encode($region_map[0]->latitude) !!};
     longitudemap = {!! json_encode($region_map[0]->longitude) !!};
     zoom = {!! json_encode($region_map[0]->zoom) !!};
-    mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-
+    data = {!! json_encode($graffs) !!};
+    dataN = {!! json_encode($graffN) !!};
+    dataS = {!! json_encode($graffS) !!};
+    dataE = {!! json_encode($graffE) !!};
+    dataO = {!! json_encode($graffO) !!};
     markers = {};
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19
-    }).addTo(mymap);
-
-    greenIcon = L.icon({
-        iconUrl: '/img/icon.bomb.png',
-        iconSize: [30, 45],
-        iconAnchor: [0, 0],
-        popupAnchor: [1, 1]
-    });
+    mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
+    osmLayer = new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19}).addTo(mymap);
+  
+    greenIcon = L.icon({iconUrl: '/img/icon.bomb.png',iconSize: [30, 45],iconAnchor: [0, 0],popupAnchor: [1, 1]});
+    mymap.addLayer(osmLayer);
+    Maps(0);
 
 
-    Maps('full');
+
+
+// fin variable
+
+
+    //map layer
+    function layer(mylayer)
+    {
+        if (mylayer == 1)
+        {
+            mymap.removeLayer(osmLayer);
+            osmLayer = new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19}).addTo(mymap);
+            mymap.addLayer(osmLayer);
+            maplayer = 1;
+        }
+        else if (mylayer == 2)
+        {
+            mymap.removeLayer(osmLayer);
+            osmLayer = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
+            mymap.addLayer(osmLayer);
+            maplayer = 2;
+        } else if (mylayer == 3)
+        {
+            mymap.removeLayer(osmLayer);
+            osmLayer = L.tileLayer('https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
+	maxZoom: 19,
+	apikey: 'choisirgeoportail',
+	format: 'image/jpeg',
+	style: 'normal'
+}).addTo(mymap);
+            mymap.addLayer(osmLayer);
+            maplayer = 3;
+        }
+        else if (mylayer == 4)
+        {
+            mymap.removeLayer(osmLayer);
+            osmLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {maxZoom: 17,}).addTo(mymap);
+            mymap.addLayer(osmLayer);
+            maplayer = 4;
+        }
+        else if (mylayer == 5)
+        {
+            mymap.removeLayer(osmLayer);
+            osmLayer = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+	        maxZoom: 20,}).addTo(mymap);
+            mymap.addLayer(osmLayer);
+            maplayer = 5;
+        }
+    }
+
+
+
+
+    //reset selector
+    function reset(){
+document.getElementById("selectfilter").selectedIndex = 0;
+document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
+}
+
+
+
+//full map
+ 
    
     function Maps(value) {
         document.getElementById("RegionData").innerHTML = "Total:";
-       
-        
-        mymap.remove();
-        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(mymap);
-        data = {!! json_encode($graffs) !!};
-       
+
         let count = 0;
         for (let i = 0; i < data.length; i++) {
             count = count + 1;
@@ -187,28 +242,21 @@
         }
     }
 
-    function reset(){
-document.getElementById("selectfilter").selectedIndex = 0;
-document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
-}
+    
 
     function MapN(value) {
         document.getElementById("RegionData").innerHTML = "Nord";
         reset();
-        mymap.remove();
        
         document.getElementById("flexid").innerHTML = "";
-        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(mymap);
-        data = {!! json_encode($graffN) !!};
+ 
+
 
         let count = 0;
 
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < dataN.length; i++) {
             count = count + 1;
-            graff = data[i];
+            graff = dataN[i];
             pics = graff.image;
             graffid = graff.id;
             theregion = graff.region;
@@ -240,19 +288,16 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
     function MapS(value) {
         document.getElementById("RegionData").innerHTML = "Sud";
         reset();
-        mymap.remove();
+       
         document.getElementById("flexid").innerHTML = "";
-        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(mymap);
-        data = {!! json_encode($graffS) !!};
+       
+      
 
 
         let count = 0;
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < dataS.length; i++) {
             count = count + 1;
-            graff = data[i];
+            graff = dataS[i];
             pics = graff.image;
             graffid = graff.id;
             theregion = graff.region;
@@ -282,17 +327,14 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
     function MapE(value) {
         document.getElementById("RegionData").innerHTML = "Est";
         reset();
-        mymap.remove();
+   
         document.getElementById("flexid").innerHTML = "";
-        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(mymap);
-        data = {!! json_encode($graffE) !!};
+  
+       
         let count = 0;
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < dataE.length; i++) {
             count = count + 1;
-            graff = data[i];
+            graff = dataE[i];
             pics = graff.image;
             graffid = graff.id;
             theregion = graff.region;
@@ -322,18 +364,14 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
     function MapO() {
         document.getElementById("RegionData").innerHTML = "Ouest";
         reset();
-        mymap.remove();
+  
         document.getElementById("flexid").innerHTML = "";
-        console.log('mapo');
-        mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(mymap);
-        data = {!! json_encode($graffO) !!};
+
+       
         let count = 0;
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < dataO.length; i++) {
             count = count + 1;
-            graff = data[i];
+            graff = dataO[i];
             pics = graff.image;
             graffid = graff.id;
             theregion = graff.region;
