@@ -57,6 +57,8 @@ class GraffCrudController extends CrudController
         CRUD::column('nom');
         CRUD::column('artiste');
         CRUD::column('region');
+        CRUD::column('latitude');
+        CRUD::column('longitude');
         $this->getFieldsData();
 
     }

@@ -1,49 +1,60 @@
-<section class="relative w-full p-2 mx-auto bg-blue-900 bg-opacity-90 body-font md:max-w-xl lg:max-w-3xl xl:max-w-5xl rounded-xl">
+<section
+    class="relative w-full p-2 mx-auto bg-blue-900 bg-opacity-90 body-font md:max-w-xl lg:max-w-3xl xl:max-w-5xl rounded-xl">
 
-    <div class="flex h-12">
+    <div class="flex h-12 ">
+        <div class="tooltip">
+            <select name="region"
+                class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none my_select md:text-sm focus:outline-none focus:border-transparent"
+                id="selectfilter" onchange="myRegion(this.value),mymap.closePopup();">
+                <option id="optionx" value="All" selected>Region</option>
+                <option id="optionx" value="All">Toutes</option>
+                <option id="optionx" value="nord">Nord</option>
+                <option id="optionx" value="sud">Sud</option>
+                <option id="optionx" value="est">Est</option>
+                <option id="optionx" value="ouest">Ouest</option>
+            </select>
+      
+        </div>
+        <div class="tooltip">
+            <select name="ville"
+                class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
+                id="selectfilter2" onchange="myVille(this.value),mymap.closePopup();">
+                <option id="optionx" value="All" selected>ville</option>
+                <option id="optionx" value="Saint-Denis">Saint-Denis</option>
+                <option id="optionx" value="Saint-Pierre">Saint-Pierre</option>
+                <option id="optionx" value="Saint-Paul">Saint-Paul</option>
+                <option id="optionx" value="Saint-Louis">Saint-Louis</option>
+            </select>
+         
+        </div>
+        <div class="tooltip">
+            <select name="Layer"
+                class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
+                id="selectfilter2" onchange="layer(this.value)">
+                <option id="optionx" value="1" selected>OSM</option>
+                <option id="optionx" value="2">MAP</option>
+                <option id="optionx" value="3">GEO</option>
+                <option id="optionx" value="4">TOPO</option>
+                <option id="optionx" value="5">CyclOSM</option>
+            </select>
+
+        </div>
+        <div class="tooltip">
+            <button name="proxi" class="h-8 px-4 my-1 text-xs text-white appearance-none md:text-sm" id="selectbtn"
+                onclick="getLocation()">A proximité</button>
+               
+        </div>
+
+        <div class="tooltip">
 
 
-        <select name="region"
-            class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none my_select md:text-sm focus:outline-none focus:border-transparent"
-            id="selectfilter" onchange="myRegion(this.value),mymap.closePopup();">
-            <option id="optionx" value="All" selected>Region</option>
-            <option id="optionx" value="All">Toutes</option>
-            <option id="optionx" value="nord">Nord</option>
-            <option id="optionx" value="sud">Sud</option>
-            <option id="optionx" value="est">Est</option>
-            <option id="optionx" value="ouest">Ouest</option>
-        </select>
+            <button name="full" class="h-8 px-4 mx-1 my-1 text-center text-white appearance-none"
+                id="selectbtn" onclick="fullscreen()">
+                <img src="/img/fullscreen.png" alt="fullscreen" width="14" height="14">
+              
+            </button>
+        </div>
 
-        <select name="ville"
-            class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
-            id="selectfilter2" onchange="myVille(this.value),mymap.closePopup();">
-            <option id="optionx" value="All" selected>ville</option>
-            <option id="optionx" value="Saint-Denis">Saint-Denis</option>
-            <option id="optionx" value="Saint-Pierre">Saint-Pierre</option>
-            <option id="optionx" value="Saint-Paul">Saint-Paul</option>
-            <option id="optionx" value="Saint-Louis">Saint-Louis</option>
-        </select>
-
-        <select name="Layer"
-            class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
-            id="selectfilter2" onchange="layer(this.value)">
-            <option id="optionx" value="1" selected>OSM</option>
-            <option id="optionx" value="2">MAP</option>
-            <option id="optionx" value="3">GEO</option>
-            <option id="optionx" value="4">TOPO</option>
-            <option id="optionx" value="5">CyclOSM</option>
-        </select>
-
-        <button name="proxi" class="h-8 px-4 my-1 text-xs text-white appearance-none md:text-sm" id="selectbtn"
-            onclick="getLocation()">A proximité</button>
-
-
-            
-        <button name="full" class="h-8 px-4 mx-1 my-1 text-xs text-center text-white appearance-none" id="selectbtn"
-            onclick="fullscreen()">
-            <img src="/img/fullscreen.png" alt="fullscreen" width="14" height="14">
-        </button>
-       
     </div>
 
     <div class="container flex flex-wrap mx-auto md:flex-nowrap">
@@ -59,8 +70,8 @@
         <div class="flex rounded-lg md:flex-col">
             <div class="flex md:flex-col overflow-x-auto md:h-[65vh] mr-2 pr-1 max-w-[87vw] rounded-b-lg">
                 <div id="flexUp" class="flex flex-col justify-between py-1 md:flex-row">
-                <h1 id="RegionData" class="px-2 text-white"></h1>
-                <h1 id="GraffData" class="px-2 text-white"></h1>
+                    <h1 id="RegionData" class="px-2 text-white"></h1>
+                    <h1 id="GraffData" class="px-2 text-white"></h1>
                 </div>
                 <div id="flexid" class="flex py-1 md:flex-col ">
 
@@ -101,7 +112,8 @@
                             <div class="container flex flex-col px-5 mx-auto">
                                 <div class="flex flex-col items-center w-5xl">
 
-                                    <h1 id="graffname" class="max-w-5xl text-4xl font-bold leading-none text-center text-white">
+                                    <h1 id="graffname"
+                                        class="max-w-5xl text-4xl font-bold leading-none text-center text-white">
                                     </h1>
                                     <div class="flex flex-col items-center">
                                         <p id="descr" class="max-w-md pt-2 text-base text-white"></p>
@@ -125,8 +137,10 @@
     </div>
 </section>
 
-<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 <script>
+    maxzoom = 16;
     maplayer = 1;
     latitudemap = {!! json_encode($region_map[0]->latitude) !!};
     longitudemap = {!! json_encode($region_map[0]->longitude) !!};
@@ -138,77 +152,77 @@
     dataO = {!! json_encode($graffO) !!};
     markers = {};
     mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-    osmLayer = new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19}).addTo(mymap);
-  
-    greenIcon = L.icon({iconUrl: '/img/icon.bomb.png',iconSize: [30, 45],iconAnchor: [0, 0],popupAnchor: [1, 1]});
+    osmLayer = new L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 19
+        }).addTo(mymap);
+
+    greenIcon = L.icon({
+        iconUrl: '/img/icon.bomb.png',
+        iconSize: [30, 45],
+        iconAnchor: [0, 0],
+        popupAnchor: [1, 1]
+    });
     mymap.addLayer(osmLayer);
     Maps(0);
 
 
 
 
-// fin variable
+    // fin variable
 
 
     //map layer
-    function layer(mylayer)
-    {
-        if (mylayer == 1)
-        {
+    function layer(mylayer) {
+        if (mylayer == 1) {
             mymap.removeLayer(osmLayer);
             osmLayer = new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19}).addTo(mymap);
             mymap.addLayer(osmLayer);
             maplayer = 1;
-        }
-        else if (mylayer == 2)
-        {
+            maxzoom = 19;
+        } else if (mylayer == 2) {
             mymap.removeLayer(osmLayer);
             osmLayer = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
             mymap.addLayer(osmLayer);
             maplayer = 2;
-        } else if (mylayer == 3)
-        {
+            maxzoom = 19;
+        } else if (mylayer == 3) {
             mymap.removeLayer(osmLayer);
-            osmLayer = L.tileLayer('https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
-	maxZoom: 19,
-	apikey: 'choisirgeoportail',
-	format: 'image/jpeg',
-	style: 'normal'
-}).addTo(mymap);
+            osmLayer = L.tileLayer('https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {maxZoom: 19,apikey: 'choisirgeoportail',format: 'image/jpeg',style: 'normal'}).addTo(mymap);
             mymap.addLayer(osmLayer);
             maplayer = 3;
-        }
-        else if (mylayer == 4)
-        {
+            maxzoom = 19;
+        } else if (mylayer == 4) {
             mymap.removeLayer(osmLayer);
-            osmLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {maxZoom: 17,}).addTo(mymap);
+            osmLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {maxZoom: 16,}).addTo(mymap);
             mymap.addLayer(osmLayer);
             maplayer = 4;
-        }
-        else if (mylayer == 5)
-        {
+            maxzoom = 16;
+        } else if (mylayer == 5) {
             mymap.removeLayer(osmLayer);
-            osmLayer = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
-	        maxZoom: 20,}).addTo(mymap);
+            osmLayer = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {maxZoom: 20,}).addTo(mymap);
             mymap.addLayer(osmLayer);
             maplayer = 5;
+            maxzoom = 20;
         }
+        console.log(maplayer);
+        console.log(maxzoom);
     }
 
 
 
 
     //reset selector
-    function reset(){
-document.getElementById("selectfilter").selectedIndex = 0;
-document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
-}
+    function reset() {
+        document.getElementById("selectfilter").selectedIndex = 0;
+        document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
+    }
 
 
 
-//full map
- 
-   
+    //full map
+
+
     function Maps(value) {
         document.getElementById("RegionData").innerHTML = "Total:";
 
@@ -242,14 +256,14 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
         }
     }
 
-    
+
 
     function MapN(value) {
         document.getElementById("RegionData").innerHTML = "Nord";
         reset();
-       
+
         document.getElementById("flexid").innerHTML = "";
- 
+
 
 
         let count = 0;
@@ -278,7 +292,7 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
                 '" />'
             );
             markers[graff.id] = marker;
-        
+
             flexbox();
             document.getElementById("GraffData").innerHTML = count;
         }
@@ -288,10 +302,10 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
     function MapS(value) {
         document.getElementById("RegionData").innerHTML = "Sud";
         reset();
-       
+
         document.getElementById("flexid").innerHTML = "";
-       
-      
+
+
 
 
         let count = 0;
@@ -327,10 +341,10 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
     function MapE(value) {
         document.getElementById("RegionData").innerHTML = "Est";
         reset();
-   
+
         document.getElementById("flexid").innerHTML = "";
-  
-       
+
+
         let count = 0;
         for (let i = 0; i < dataE.length; i++) {
             count = count + 1;
@@ -364,10 +378,10 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
     function MapO() {
         document.getElementById("RegionData").innerHTML = "Ouest";
         reset();
-  
+
         document.getElementById("flexid").innerHTML = "";
 
-       
+
         let count = 0;
         for (let i = 0; i < dataO.length; i++) {
             count = count + 1;
@@ -393,7 +407,7 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
                 '" />'
             );
             markers[graff.id] = marker;
-         
+
             flexbox();
             document.getElementById("GraffData").innerHTML = count;
         }
@@ -453,7 +467,7 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
     // JUMP TO GRAFF
     function centerMapOnPost(id) {
         mymap.closePopup();
-        mymap.flyTo(markers[id].getLatLng(), 18);
+        mymap.flyTo(markers[id].getLatLng(), maxzoom);
         markers[id].openPopup();
     }
 
@@ -483,7 +497,7 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
 
     // FLY TO MY LOCATION
     function myLocation(lat, long) {
-     
+
 
         if (lat < -21.20) {
             MapS();
@@ -585,3 +599,4 @@ document.getElementById("selectfilter2").selectedIndex = 0; //1 = option 2
         }
     }
 </script>
+

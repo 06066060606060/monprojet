@@ -12,11 +12,11 @@ class MapsController extends Controller
     {
     
        
-            $graffs = Graff::orderBy('id', 'desc')->get();
-            $graffN = Graff::where('region', 'nord')->orderBy('id', 'desc')->get();
-            $graffS = Graff::where('region', 'sud')->orderBy('id', 'desc')->get();
-            $graffE = Graff::where('region', 'est')->orderBy('id', 'desc')->get();
-            $graffO = Graff::where('region', 'ouest')->orderBy('id', 'desc')->get();
+            $graffs = Graff::orderBy('latitude', 'desc')->get();
+            $graffN = Graff::where('region', 'nord')->orderBy('latitude', 'desc')->get();
+            $graffS = Graff::where('region', 'sud')->orderBy('latitude', 'desc')->get();
+            $graffE = Graff::where('region', 'est')->orderBy('latitude', 'desc')->get();
+            $graffO = Graff::where('region', 'ouest')->orderBy('latitude', 'desc')->get();
             $region_map = Regions::all();
         return view('maps', compact('graffs', 'region_map','graffN', 'graffS', 'graffE', 'graffO'));
     }
