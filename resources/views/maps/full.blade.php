@@ -31,8 +31,8 @@
             <select name="Layer"
                 class="h-8 px-2 py-1 mx-1 my-1 text-xs text-center text-white rounded appearance-none md:text-sm focus:outline-none focus:border-transparent"
                 id="selectfilter2" onchange="layer(this.value)">
-                <option id="optionx" value="1" selected>OSM</option>
-                <option id="optionx" value="2">MAP</option>
+                <option id="optionx" value="1" selected>MAP</option>
+                <option id="optionx" value="2">OSM</option>
                 <option id="optionx" value="3">GEO</option>
                 <option id="optionx" value="4">TOPO</option>
                 <option id="optionx" value="5">CyclOSM</option>
@@ -152,10 +152,7 @@
     dataO = {!! json_encode($graffO) !!};
     markers = {};
     mymap = L.map('map').setView([latitudemap, longitudemap], zoom);
-    osmLayer = new L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            maxZoom: 19
-        }).addTo(mymap);
+    osmLayer = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
 
     greenIcon = L.icon({
         iconUrl: '/img/icon.bomb.png',
@@ -176,15 +173,15 @@
     function layer(mylayer) {
         if (mylayer == 1) {
             mymap.removeLayer(osmLayer);
-            osmLayer = new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19}).addTo(mymap);
-            mymap.addLayer(osmLayer);
-            maplayer = 1;
-            maxzoom = 19;
-        } else if (mylayer == 2) {
-            mymap.removeLayer(osmLayer);
             osmLayer = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(mymap);
             mymap.addLayer(osmLayer);
             maplayer = 2;
+            maxzoom = 19;
+        } else if (mylayer == 2) {
+            mymap.removeLayer(osmLayer);
+            osmLayer = new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19}).addTo(mymap);
+            mymap.addLayer(osmLayer);
+            maplayer = 1;
             maxzoom = 19;
         } else if (mylayer == 3) {
             mymap.removeLayer(osmLayer);
